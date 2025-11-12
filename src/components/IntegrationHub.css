@@ -1,0 +1,129 @@
+.integration-hub {
+  background: linear-gradient(180deg, #111827 0%, #0f172a 100%);
+  color: rgba(255, 255, 255, 0.9);
+  padding: 6rem 0;
+}
+
+.integration-hub-inner {
+  width: min(1180px, 92vw);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+  gap: 3rem;
+  align-items: center;
+}
+
+.integration-visual {
+  position: relative;
+  border-radius: 32px;
+  background: radial-gradient(circle at center, rgba(248, 224, 100, 0.35), rgba(59, 130, 246, 0.12));
+  min-height: 360px;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-size: 1.4rem;
+}
+
+.integration-glow {
+  position: absolute;
+  width: 120%;
+  height: 120%;
+  background: radial-gradient(circle, rgba(248, 224, 100, 0.45), transparent 70%);
+  filter: blur(90px);
+  opacity: 0.7;
+}
+
+.integration-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.integration-tag {
+  display: inline-flex;
+  align-self: flex-start;
+  padding: 0.35rem 1.1rem;
+  border-radius: 999px;
+  background: rgba(248, 224, 100, 0.15);
+  color: #fcd34d;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+}
+
+.integration-copy h2 {
+  margin: 0;
+  font-size: clamp(2rem, 3.3vw, 3rem);
+  color: #f8fafc;
+}
+
+.integration-copy p {
+  margin: 0;
+  color: rgba(226, 232, 240, 0.85);
+  font-size: 1.05rem;
+}
+
+.integration-text-block {
+  background: rgba(15, 23, 42, 0.55);
+  border-radius: 24px;
+  padding: 2.2rem;
+  border: 1px solid rgba(148, 163, 184, 0.18);
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+}
+
+.integration-text-block h3 {
+  margin: 0;
+  font-size: 1.4rem;
+  color: #f8fafc;
+}
+
+.integration-text-block p {
+  margin: 0;
+  line-height: 1.7;
+  color: rgba(226, 232, 240, 0.78);
+}
+
+.integration-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 0.75rem;
+}
+
+.integration-list li {
+  padding: 0.75rem 1rem;
+  border-radius: 12px;
+  background: rgba(30, 41, 59, 0.8);
+  text-align: center;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.integration-cta {
+  display: inline-flex;
+  align-self: flex-start;
+  border-radius: 999px;
+  padding: 0.85rem 1.8rem;
+  background: #fcd34d;
+  color: #0f172a;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.integration-cta:hover {
+  opacity: 0.9;
+}
+
+@media (max-width: 900px) {
+  .integration-hub-inner {
+    grid-template-columns: 1fr;
+  }
+}

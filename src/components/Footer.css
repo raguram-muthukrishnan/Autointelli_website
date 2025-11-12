@@ -1,0 +1,165 @@
+/* Make sure to import the 'DM Sans' font in your main CSS or index.html */
+/* @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap'); */
+
+/* Main Footer Container */
+.footer-container {
+ /* Layout */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; /* Pushes content to the bottom */
+  align-items: center; /* Center the content horizontally */
+  gap: 60px;
+  
+  /* Sizing & Spacing */
+  min-height: 482px;
+  width: 100%;
+  padding: 53px 0 43px 0; /* Vertical padding, horizontal is handled by children */
+  box-sizing: border-box;
+
+  /* Style */
+  background-color: #1A1E23; /* A dark background for the footer */
+  border-top-left-radius: 50px;  /* Added top-left corner radius */
+  border-top-right-radius: 50px; /* Added top-right corner radius */
+}
+
+/* Container for the link sections */
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  width: 837px;
+  height: 222px;
+  flex-shrink: 0;
+}
+
+/* Individual column for links (Product, Company, etc.) */
+.footer-section {
+  width: 108px;
+  height: 222px;
+  flex-shrink: 0;
+}
+
+.section-title {
+  color: #FFD600; /* Highlight color on hover */
+  font-size: 20px;
+  font-weight: 700;
+  margin-top: 0;
+  text-align: center;
+  margin-bottom: 40px; /* Gap between title and links */
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  gap: 15px; /* Space between each link */
+}
+
+.footer-links a {
+  color: #E0E0E0; /* A light grey for links */
+  font-size: 16px;
+  font-weight: 400;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #FFD600; /* Highlight color on hover */
+}
+
+/* Bottom part of the footer */
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 837px;
+  height: 104px;
+  flex-shrink: 0;
+}
+
+.footer-logo-container {
+  /* Layout */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  /* Sizing */
+  width: 216.063px;
+  height: 104px;
+  flex-shrink: 0;
+
+  /* Style */
+  border-radius: 28px;
+  background: #FFF;
+}
+
+.footer-logo {
+  max-width: 80%; /* Ensure logo fits inside the container */
+  height: auto;
+}
+
+.copyright-text {
+  /* Sizing */
+  width: 425.313px;
+  
+  /* Typography */
+  color: #FFF;
+  text-align: right;
+  font-feature-settings: 'liga' off, 'clig' off;
+  font-family: "DM Sans", sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px; /* 100% */
+  margin: 0;
+}
+
+@media (max-width: 960px) {
+  .footer-container {
+    padding: 40px 20px;
+    gap: 40px;
+    min-height: auto;
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
+  }
+
+  /* Changed to a 2x2 grid layout */
+  .footer-content {
+    flex-direction: row; /* Arrange items in a row */
+    flex-wrap: wrap; /* Allow items to wrap to the next line */
+    justify-content: center; /* Center the items */
+    align-items: flex-start;
+    width: 100%;
+    max-width: 500px; /* Control the max width of the grid */
+    height: auto;
+    gap: 40px 20px; /* row-gap and column-gap */
+  }
+
+  .footer-section {
+    width: 45%; /* Set width for two items per row */
+    height: auto;
+    text-align: center;
+  }
+
+  .section-title {
+    margin-bottom: 20px;
+    color:#FFD600
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    gap: 30px;
+    width: 100%;
+    height: auto;
+    text-align: center;
+  }
+
+  .copyright-text {
+    width: 100%;
+    text-align: center;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+}

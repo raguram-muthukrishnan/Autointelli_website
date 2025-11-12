@@ -1,0 +1,122 @@
+.why-choose {
+  background: linear-gradient(180deg, #fdf6ec 0%, #ffffff 100%);
+  padding: 6rem 0;
+}
+
+.why-choose-inner {
+  width: min(1180px, 92vw);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 3rem;
+  align-items: center;
+}
+
+.why-choose-visual {
+  position: relative;
+  background: radial-gradient(circle at 30% 30%, rgba(251, 191, 36, 0.45), rgba(14, 116, 224, 0.1));
+  border-radius: 32px;
+  height: 100%;
+  min-height: 320px;
+  display: grid;
+  place-items: center;
+  color: #0f172a;
+  font-weight: 700;
+  font-size: 2.1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  overflow: hidden;
+}
+
+.why-choose-visual span {
+  text-align: center;
+  line-height: 1.4;
+}
+
+.why-choose-visual span span {
+  color: #b45309;
+}
+
+.why-choose-glow {
+  position: absolute;
+  width: 140%;
+  height: 140%;
+  background: radial-gradient(circle, rgba(251, 191, 36, 0.5), transparent 60%);
+  filter: blur(90px);
+  opacity: 0.6;
+}
+
+.why-choose-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.why-choose-tag {
+  display: inline-flex;
+  align-self: flex-start;
+  padding: 0.35rem 1.1rem;
+  border-radius: 999px;
+  background: rgba(245, 158, 11, 0.16);
+  color: #b45309;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+}
+
+.why-choose-copy h2 {
+  margin: 0;
+  font-size: clamp(2rem, 3.1vw, 2.9rem);
+  color: #0f172a;
+}
+
+.why-choose-copy p {
+  margin: 0;
+  color: #4b5563;
+  font-size: 1.05rem;
+}
+
+.why-choose-copy ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.9rem;
+}
+
+.why-choose-copy li {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  color: #374151;
+  line-height: 1.6;
+}
+
+.why-choose-copy svg {
+  color: #b45309;
+  font-size: 1.25rem;
+}
+
+.why-choose-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  padding: 0.85rem 1.8rem;
+  background: #0f172a;
+  color: #ffffff;
+  font-weight: 600;
+  text-decoration: none;
+  margin-top: 0.5rem;
+}
+
+.why-choose-cta:hover {
+  opacity: 0.86;
+}
+
+@media (max-width: 900px) {
+  .why-choose-inner {
+    grid-template-columns: 1fr;
+  }
+}
