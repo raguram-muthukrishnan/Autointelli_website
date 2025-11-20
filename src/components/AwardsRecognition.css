@@ -84,7 +84,7 @@
   font-size: 32px;
   font-weight: 700;
   display: block;
-  /* Color applied inline for each card */
+  color: #F0CE1D;
 }
 
 .award-card {
@@ -153,6 +153,7 @@
   font-weight: 700;
   margin: 15px 0;
   line-height: 1;
+  color: #F0CE1D;
 }
 
 .award-achievement {

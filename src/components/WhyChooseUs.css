@@ -58,12 +58,12 @@
 .why-choose-tag {
   display: inline-flex;
   align-self: flex-start;
-  padding: 0.35rem 1.1rem;
+  padding: 0.35rem 1.2rem;
   border-radius: 999px;
-  background: rgba(245, 158, 11, 0.16);
+  background: rgba(250, 204, 21, 0.28);
   color: #b45309;
   font-weight: 600;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   font-size: 0.75rem;
 }
@@ -97,7 +97,7 @@
 }
 
 .why-choose-copy svg {
-  color: #b45309;
+  color: #F0CE1D;
   font-size: 1.25rem;
 }
 
@@ -107,15 +107,17 @@
   justify-content: center;
   border-radius: 999px;
   padding: 0.85rem 1.8rem;
-  background: #0f172a;
-  color: #ffffff;
+  background: linear-gradient(135deg, #F0CE1D 0%, #F8E064 100%);
+  color: #212529;
   font-weight: 600;
   text-decoration: none;
   margin-top: 0.5rem;
+  transition: all 0.3s ease;
 }
 
 .why-choose-cta:hover {
-  opacity: 0.86;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(240, 206, 29, 0.3);
 }
 
 @media (max-width: 900px) {

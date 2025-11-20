@@ -16,7 +16,7 @@ const primaryCards = [
     icon: <FiGlobe />,
     title: 'IT Operations Management',
     description: 'Orchestrate observability, capacity, and performance with a unified command center.',
-    badge: 'Fin',
+    badge: '',
     imageLabel: 'Automation snapshot',
     image: ir1
   },
@@ -24,7 +24,7 @@ const primaryCards = [
     icon: <FiShield />,
     title: 'Security & Compliance',
     description: 'Bring proactive threat detection, compliance reporting, and access governance together.',
-    badge: 'Workflows',
+    badge: '',
     imageLabel: 'Workflow builder overview',
     image: ir2
   },
@@ -32,7 +32,7 @@ const primaryCards = [
     icon: <FiCpu />,
     title: 'Automation & Orchestration',
     description: 'Automate resolutions, approvals, and delivery pipelines with reusable runbooks.',
-    badge: 'Runbooks',
+    badge: '',
     imageLabel: 'Automation canvas',
     image: ir3
   }
@@ -74,7 +74,9 @@ const PlatformOverview = () => {
           {primaryCards.map((card) => (
             <article key={card.title} className="platform-primary-card">
               <header>
-                <span className="primary-badge">{card.badge}</span>
+                <div className="primary-icon" aria-hidden="true">
+                  {card.icon}
+                </div>
                 <h3>{card.title}</h3>
               </header>
               <div className="primary-image" aria-hidden="true">
@@ -82,9 +84,6 @@ const PlatformOverview = () => {
               </div>
               <p>{card.description}</p>
               <a href="/products" className="primary-learn-more">Learn More</a>
-              <div className="primary-icon" aria-hidden="true">
-                {card.icon}
-              </div>
             </article>
           ))}
         </div>

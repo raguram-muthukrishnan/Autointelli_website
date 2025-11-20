@@ -36,6 +36,29 @@ const ProductsPage = () => {
   // State and handlers for the contact form
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const [errors, setErrors] = useState({});
+  const [activeSection, setActiveSection] = useState(null);
+
+  // Intersection Observer for active section highlighting
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        });
+      },
+      { threshold: 0.3 }
+    );
+
+    // Observe all product sections
+    const sections = document.querySelectorAll('.product-section');
+    sections.forEach((section) => observer.observe(section));
+
+    return () => {
+      sections.forEach((section) => observer.unobserve(section));
+    };
+  }, []);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -112,7 +135,11 @@ const ProductsPage = () => {
       <nav className="secondary-navbar">
         <div className="secondary-navbar-content">
           {productsData.products.map(product => (
-            <a key={product.id} href={`#${product.id}`} className="secondary-nav-link">
+            <a 
+              key={product.id} 
+              href={`#${product.id}`} 
+              className={`secondary-nav-link ${activeSection === product.id ? 'active' : ''}`}
+            >
               {product.name}
             </a>
           ))}

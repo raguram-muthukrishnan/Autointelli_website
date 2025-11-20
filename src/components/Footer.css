@@ -26,16 +26,20 @@
 .footer-content {
   display: flex;
   justify-content: space-between;
-  width: 837px;
-  height: 222px;
+  width: 100%;
+  max-width: 900px;
+  height: auto;
   flex-shrink: 0;
+  gap: 20px;
+  padding: 0 40px;
 }
 
 /* Individual column for links (Product, Company, etc.) */
 .footer-section {
-  width: 108px;
-  height: 222px;
+  width: auto;
+  height: auto;
   flex-shrink: 0;
+  flex: 1;
 }
 
 .section-title {
@@ -67,6 +71,42 @@
 
 .footer-links a:hover {
   color: #FFD600; /* Highlight color on hover */
+}
+
+.footer-social-icons {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: nowrap;
+}
+
+.social-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #000000;
+  color: #F0CE1D;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  border: 1px solid #F0CE1D;
+}
+
+.social-icon:hover {
+  background: #F0CE1D;
+  color: #000000;
+  transform: translateY(-3px);
+  border-color: #F0CE1D;
+  border-radius: 8px;
+}
+
+.social-icon svg {
+  width: 18px;
+  height: 18px;
+  stroke-width: 1.5;
 }
 
 /* Bottom part of the footer */
@@ -129,18 +169,19 @@
   .footer-content {
     flex-direction: row; /* Arrange items in a row */
     flex-wrap: wrap; /* Allow items to wrap to the next line */
-    justify-content: center; /* Center the items */
+    justify-content: flex-end; /* Right align the items */
     align-items: flex-start;
     width: 100%;
-    max-width: 500px; /* Control the max width of the grid */
+    max-width: 100%;
     height: auto;
     gap: 40px 20px; /* row-gap and column-gap */
+    padding: 0 20px;
   }
 
   .footer-section {
-    width: 45%; /* Set width for two items per row */
+    width: auto;
     height: auto;
-    text-align: center;
+    text-align: right;
   }
 
   .section-title {

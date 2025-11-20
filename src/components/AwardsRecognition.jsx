@@ -38,8 +38,8 @@ const awards = [
 
 const awardImages = [
   { image: award1, title: 'Award Recognition', year: '2022', color: '#F0CE1D' },
-  { image: award2, title: 'Excellence Award', year: '2015', color: '#4A90E2' },
-  { image: award3, title: 'Innovation Award', year: '2011', color: '#E94B3C' }
+  { image: award2, title: 'Excellence Award', year: '2015', color: '#F0CE1D' },
+  { image: award3, title: 'Innovation Award', year: '2011', color: '#F0CE1D' }
 ];
 
 const AwardsRecognition = () => {

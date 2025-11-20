@@ -9,27 +9,57 @@
 
 /* --- Secondary Navbar --- */
 .secondary-navbar {
-  position: -webkit-sticky; /* Safari support */
+  position: -webkit-sticky; /* Safari, DuckDuckGo support */
   position: sticky;
-  top: 0;
+  top: 105px; /* Stick below the main header (header is ~105px) */
   width: 100%;
-  background-color: rgba(255, 255, 255, 0.95);
+  background-color: rgba(255, 255, 255, 0.98);
   backdrop-filter: blur(10px);
-  z-index: 999; /* Lower than main header (1001) to avoid conflict */
+  -webkit-backdrop-filter: blur(10px); /* Safari support */
+  z-index: 998; /* Lower than main header (1001) to avoid conflict */
   box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-  padding: 15px 0;
+  padding: 12px 0;
   border-bottom: 1px solid rgba(0,0,0,0.05);
   transition: all 0.3s ease;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  /* Hide scrollbar for all browsers */
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+/* Chrome, Safari, Opera, DuckDuckGo */
+.secondary-navbar::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+.secondary-navbar::-webkit-scrollbar-track {
+  display: none;
+}
+
+.secondary-navbar::-webkit-scrollbar-thumb {
+  display: none;
 }
 
 .secondary-navbar-content {
   display: flex;
   justify-content: center;
-  gap: 40px;
+  gap: 30px;
   max-width: 1400px;
   margin: 0 auto;
   padding: 0 40px;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  /* Hide scrollbar */
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.secondary-navbar-content::-webkit-scrollbar {
+  display: none;
 }
 
 .secondary-nav-link {
@@ -37,12 +67,14 @@
   color: #1a1a2e; /* Black/Dark Blue */
   font-family: 'DM Sans', sans-serif; /* Changed to match website body font */
   font-weight: 700;
-  font-size: 14px;
+  font-size: 13px;
   transition: color 0.3s ease, transform 0.3s ease;
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 0.8px;
   position: relative;
-  padding: 5px 0; /* Added padding for better click area */
+  padding: 8px 12px;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .secondary-nav-link:hover {
@@ -65,34 +97,91 @@
   width: 100%;
 }
 
+.secondary-nav-link.active {
+  color: #F0CE1D;
+  font-weight: 800;
+}
+
+.secondary-nav-link.active::after {
+  width: 100%;
+  background-color: #F0CE1D;
+}
+
 /* Responsive adjustments for navbar */
+@media (max-width: 1200px) {
+  .secondary-navbar {
+    top: 100px;
+    padding: 11px 0;
+  }
+  .secondary-navbar-content {
+    gap: 25px;
+    padding: 0 30px;
+  }
+  .secondary-nav-link {
+    font-size: 12px;
+    padding: 6px 10px;
+  }
+}
+
 @media (max-width: 992px) {
+  .secondary-navbar {
+    top: 90px;
+    padding: 10px 0;
+  }
   .secondary-navbar-content {
     gap: 20px;
     padding: 0 20px;
   }
   .secondary-nav-link {
-    font-size: 12px;
+    font-size: 11px;
+    padding: 5px 8px;
   }
 }
 
 @media (max-width: 768px) {
   .secondary-navbar {
-    /* Make it a horizontal scrollable list on mobile */
-    overflow-x: auto;
-    justify-content: flex-start;
-    -webkit-overflow-scrolling: touch;
+    display: none;
   }
   .secondary-navbar-content {
-    justify-content: flex-start;
-    flex-wrap: nowrap;
-    padding: 0 20px;
-    width: max-content; /* Allow content to overflow */
-    gap: 25px;
+    gap: 15px;
+    padding: 0 15px;
   }
-  /* Hide scrollbar */
-  .secondary-navbar::-webkit-scrollbar {
-    display: none;
+  .secondary-nav-link {
+    font-size: 10px;
+    padding: 5px 7px;
+    letter-spacing: 0.4px;
+  }
+}
+
+@media (max-width: 576px) {
+  .secondary-navbar {
+    top: 75px;
+    padding: 8px 0;
+  }
+  .secondary-navbar-content {
+    gap: 12px;
+    padding: 0 12px;
+  }
+  .secondary-nav-link {
+    font-size: 9px;
+    padding: 4px 6px;
+    letter-spacing: 0.3px;
+  }
+}
+
+@media (max-width: 480px) {
+  .secondary-navbar {
+    top: 70px;
+    padding: 7px 0;
+  }
+  .secondary-navbar-content {
+    gap: 10px;
+    padding: 0 10px;
+  }
+  .secondary-nav-link {
+    font-size: 8px;
+    padding: 4px 5px;
+    letter-spacing: 0.2px;
   }
 }
 
@@ -106,7 +195,7 @@
   overflow: hidden;
   background: radial-gradient(circle at top right, #2a2a4e 0%, #1a1a2e 100%);
   color: #ffffff;
-  padding: 0 80px 60px;
+  padding: 0 clamp(20px, 5vw, 80px) clamp(40px, 8vw, 60px);
   max-width: 100%;
   box-sizing: border-box;
 }
@@ -115,7 +204,7 @@
 .hero-content-wrapper {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 80px;
+  gap: clamp(40px, 8vw, 80px);
   align-items: center;
   max-width: 1400px;
   width: 100%;
@@ -132,7 +221,7 @@
 
 .products-page-title {
   font-family: 'Sk-Modernist', sans-serif;
-  font-size: 38px;
+  font-size: clamp(28px, 6vw, 48px);
   font-weight: 700;
   color: #ffffff;
   margin: 0 0 20px 0;
@@ -142,7 +231,7 @@
 }
 
 .products-page-subtitle {
-  font-size: 16px;
+  font-size: clamp(14px, 3vw, 18px);
   color: #e0e0e0;
   line-height: 1.6;
   word-wrap: break-word;
@@ -170,17 +259,16 @@
 }
 
 .product-section {
-  padding: 140px 0;
+  padding: clamp(60px, 12vw, 140px) 0;
   width: 100%;
   position: relative;
-  scroll-margin-top: 80px; /* Ensure section title is not hidden behind sticky navbar */
-  /* No max-width here to allow background to span full width */
+  scroll-margin-top: 80px;
 }
 
 .product-content-container {
   max-width: 1400px;
   margin: 0 auto;
-  padding: 0 60px;
+  padding: 0 clamp(20px, 5vw, 60px);
   box-sizing: border-box;
 }
 
@@ -246,9 +334,9 @@
 .product-hero-content {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 80px;
+  gap: clamp(40px, 8vw, 80px);
   align-items: center;
-  margin-bottom: 60px;
+  margin-bottom: clamp(40px, 8vw, 60px);
 }
 
 .product-section:nth-child(even) .product-hero-content {
@@ -263,28 +351,28 @@
 
 .product-name {
   font-family: 'Sk-Modernist', sans-serif;
-  font-size: 52px;
+  font-size: clamp(32px, 6vw, 52px);
   font-weight: 700;
   color: #1a1a2e;
-  margin-bottom: 8px; /* Reduced from 12px */
+  margin-bottom: clamp(6px, 1.5vw, 12px);
   letter-spacing: -0.5px;
   line-height: 1.1;
 }
 
 .product-tagline {
   font-family: 'Sk-Modernist', sans-serif;
-  font-size: 22px;
+  font-size: clamp(16px, 4vw, 22px);
   color: #5a6268;
-  margin-bottom: 20px; /* Reduced from 24px */
+  margin-bottom: clamp(16px, 3vw, 24px);
   font-weight: 500;
   line-height: 1.4;
 }
 
 .product-description {
-  font-size: 16px;
+  font-size: clamp(14px, 3vw, 16px);
   line-height: 1.8;
   color: #6c757d;
-  margin-bottom: 30px;
+  margin-bottom: clamp(20px, 4vw, 30px);
 }
 
 .learn-more-link {
@@ -332,24 +420,24 @@
 .product-summary {
   text-align: justify;
   text-align-last: center;
-  font-size: 20px; /* Reduced from 24px */
+  font-size: clamp(16px, 4vw, 20px);
   line-height: 1.6;
-  max-width: 1200px; /* Increased from 1000px */
-  margin: 0 auto 80px auto;
+  max-width: 1200px;
+  margin: 0 auto clamp(50px, 8vw, 80px) auto;
   color: #495057;
   font-weight: 400;
-  padding: 0 20px;
+  padding: 0 clamp(15px, 3vw, 20px);
 }
 
 .features-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 40px;
+  grid-template-columns: repeat(auto-fit, minmax(clamp(200px, 40vw, 280px), 1fr));
+  gap: clamp(20px, 4vw, 40px);
 }
 
 .feature-card {
   text-align: left;
-  padding: 30px;
+  padding: clamp(20px, 4vw, 30px);
   border-radius: 20px;
   background: #ffffff;
   box-shadow: 0 10px 40px rgba(0,0,0,0.05);
@@ -366,29 +454,29 @@
 }
 
 .feature-icon {
-  width: 60px;
-  height: 60px;
+  width: clamp(50px, 8vw, 60px);
+  height: clamp(50px, 8vw, 60px);
   background: rgba(240, 206, 29, 0.15);
   border-radius: 16px;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 24px;
+  margin-bottom: clamp(16px, 3vw, 24px);
   color: #d9b300;
-  font-size: 24px;
+  font-size: clamp(18px, 4vw, 24px);
 }
 
 .feature-title {
   font-family: 'Sk-Modernist', sans-serif;
-  font-size: 22px;
+  font-size: clamp(16px, 4vw, 22px);
   font-weight: 700;
-  margin-bottom: 12px;
+  margin-bottom: clamp(6px, 1.5vw, 12px);
   color: #343a40;
-  min-height: 54px; /* Added to align descriptions */
+  min-height: 60px;
   display: flex;
-  align-items: flex-end; /* Align text to bottom of this container if needed, or top */
-  /* Actually top is better for titles usually */
-  align-items: flex-start; 
+  align-items: flex-start;
+  line-height: 1.3;
+  word-break: break-word;
 }
 
 /* Dark Theme Overrides for Cards */
@@ -418,7 +506,7 @@
 }
 
 .feature-description {
-  font-size: 15px;
+  font-size: clamp(13px, 2.5vw, 15px);
   line-height: 1.6;
   color: #6c757d;
 }

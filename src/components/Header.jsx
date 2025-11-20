@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import './Header.css';
 import logo from '../assets/logo.png';
 
@@ -9,6 +10,9 @@ const Header = () => {
   const [activeDropdown, setActiveDropdown] = useState(null);
   const [closeTimeout, setCloseTimeout] = useState(null);
   const [mobileDropdown, setMobileDropdown] = useState(null);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const location = useLocation();
+  const isHomePage = location.pathname === '/';
 
   // Function to toggle the menu's open/closed state
   const toggleMenu = () => {
@@ -39,9 +43,27 @@ const Header = () => {
     setCloseTimeout(timeout);
   };
 
+  // Add scroll listener for all pages
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   // SVG component for the dropdown arrow
-  const DropdownIcon = ({ color = '#555' }) => (
-    <svg className="dropdown-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  const DropdownIcon = ({ color = '#555', isOpen = false }) => (
+    <svg 
+      className={`dropdown-icon ${isOpen ? 'open' : ''}`} 
+      width="12" 
+      height="12" 
+      viewBox="0 0 24 24" 
+      fill="none" 
+      xmlns="http://www.w3.org/2000/svg"
+      style={{ transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)', transition: 'transform 0.3s ease' }}
+    >
       <path d="M6 9L12 15L18 9" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
     </svg>
   );
@@ -49,10 +71,10 @@ const Header = () => {
   return (
     <>
       {/* All styles are consolidated here */}      
-      <header className="header-container">
-        <div className="logo">
+      <header className={`header-container ${isHomePage && isScrolled ? 'scrolled' : ''}`}>
+        <a href="/" className="logo">
           <img src={logo} alt="AUTOINTELLI_LOGO" />
-        </div>
+        </a>
 
         {/* --- Desktop Navigation --- */}
         <nav className="nav-links">
@@ -62,6 +84,7 @@ const Header = () => {
             {/* Products Dropdown */}
             <li 
               className="dropdown-item"
+              onMouseEnter={() => handleDropdownEnter('products')}
               onMouseLeave={handleDropdownLeave}
             >
               <a href="/products" className="dropdown-text-link">Products</a>
@@ -73,7 +96,7 @@ const Header = () => {
                   handleDropdownEnter('products');
                 }}
               >
-                <DropdownIcon />
+                <DropdownIcon isOpen={activeDropdown === 'products'} />
               </span>
               
               {activeDropdown === 'products' && (
@@ -206,6 +229,7 @@ const Header = () => {
             {/* Resources Dropdown */}
             <li 
               className="dropdown-item"
+              onMouseEnter={() => handleDropdownEnter('resources')}
               onMouseLeave={handleDropdownLeave}
             >
               <a href="/resources" className="dropdown-text-link">Resource</a>
@@ -217,7 +241,7 @@ const Header = () => {
                   handleDropdownEnter('resources');
                 }}
               >
-                <DropdownIcon />
+                <DropdownIcon isOpen={activeDropdown === 'resources'} />
               </span>
               
               {activeDropdown === 'resources' && (
