@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './ProductsPage.css';
 import { productsData } from '../../data/productsData';
 import CardSwap, { Card } from '../components/CardSwap';
@@ -108,34 +108,47 @@ const ProductsPage = () => {
         </div>
       </header>
 
+      {/* Secondary Navbar - Sticky below hero */}
+      <nav className="secondary-navbar">
+        <div className="secondary-navbar-content">
+          {productsData.products.map(product => (
+            <a key={product.id} href={`#${product.id}`} className="secondary-nav-link">
+              {product.name}
+            </a>
+          ))}
+        </div>
+      </nav>
+
       {/* --- The rest of the page remains the same --- */}
        <main className="products-list">
         {productsData.products.map((product) => (
-          <section key={product.id} className="product-section">
-            <div className="product-hero-content">
-              <div className="product-text-content">
-                <h2 className="product-name">{product.name}</h2>
-                <h3 className="product-tagline">{product.hero?.headline || product.hero?.tagline || 'Advanced IT Solutions'}</h3>
-                <p className="product-description">{product.hero?.subheadline || product.intro?.solution || 'Comprehensive IT solutions designed to optimize your operations and enhance efficiency.'}</p>
-                <a href={product.slug} className="learn-more-link">Learn More &rarr;</a>
+          <section key={product.id} id={product.id} className="product-section">
+            <div className="product-content-container">
+              <div className="product-hero-content">
+                <div className="product-text-content">
+                  <h2 className="product-name">{product.name}</h2>
+                  <h3 className="product-tagline">{product.hero?.headline || product.hero?.tagline || 'Advanced IT Solutions'}</h3>
+                  <p className="product-description">{product.hero?.subheadline || product.intro?.solution || 'Comprehensive IT solutions designed to optimize your operations and enhance efficiency.'}</p>
+                  <a href={product.slug} className="learn-more-link">Learn More</a>
+                </div>
+                <div className="product-image-content">
+                  <img src={productImages[product.id] || 'https://placehold.co/600x450/1a202c/fff?text=' + encodeURIComponent(product.name)} alt={`${product.name} illustration`} className="product-hero-image" />
+                </div>
               </div>
-              <div className="product-image-content">
-                <img src={productImages[product.id] || 'https://placehold.co/600x450/1a202c/fff?text=' + encodeURIComponent(product.name)} alt={`${product.name} illustration`} className="product-hero-image" />
-              </div>
-            </div>
 
-            <div className="product-details">
-              <p className="product-summary">{product.platformOverview?.summary || product.intro?.solution || 'Discover how this powerful solution can transform your IT operations and drive business success.'}</p>
-              <div className="features-grid">
-                {(product.keyFeatures?.features || []).slice(0, 4).map((feature, idx) => {
-                  return (
-                    <div key={idx} className="feature-card">
-                      <div className="feature-icon">{getFeatureIcon(feature.title, feature.description, idx)}</div>
-                      <h4 className="feature-title">{feature.title}</h4>
-                      <p className="feature-description">{feature.description}</p>
-                    </div>
-                  );
-                })}
+              <div className="product-details">
+                <p className="product-summary">{product.platformOverview?.summary || product.intro?.solution || 'Discover how this powerful solution can transform your IT operations and drive business success.'}</p>
+                <div className="features-grid">
+                  {(product.keyFeatures?.features || []).slice(0, 4).map((feature, idx) => {
+                    return (
+                      <div key={idx} className="feature-card">
+                        <div className="feature-icon">{getFeatureIcon(feature.title, feature.description, idx, idx === 0, product.id)}</div>
+                        <h4 className="feature-title">{feature.title}</h4>
+                        <p className="feature-description">{feature.description}</p>
+                      </div>
+                    );
+                  })}
+                </div>
               </div>
             </div>
           </section>
