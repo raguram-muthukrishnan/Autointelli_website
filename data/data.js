@@ -6,6 +6,17 @@ import cardIcon5 from '../src/assets/HELPDESK.png';
 import cardIcon6 from '../src/assets/ALICE.png';
 import cardIcon7 from '../src/assets/ASSET.png';
 
+// Import client logos from Clientlogos folder
+import logo1 from '../src/assets/Clientlogos/access health.png';
+import logo2 from '../src/assets/Clientlogos/corror health.png';
+import logo3 from '../src/assets/Clientlogos/election.png';
+import logo4 from '../src/assets/Clientlogos/india cements.png';
+import logo5 from '../src/assets/Clientlogos/mahindra.png';
+import logo6 from '../src/assets/Clientlogos/maxval.png';
+import logo7 from '../src/assets/Clientlogos/motorola.png';
+import logo8 from '../src/assets/Clientlogos/redington.png';
+import logo9 from '../src/assets/Clientlogos/royal sundaram.png';
+
 export const opsData = {
   title: "MONITOR AND MANAGE ALL YOUR IT INFRA OPERATIONS",
   subtitle: "With the Increasing Complexity of Today’s Heterogeneous Networks, It Has Become Imperative for Organizations to Invest In a Robust IT Operations Platform. ",
@@ -50,13 +61,15 @@ export const opsData = {
     title: "Trusted By",
     subtext: "Chosen by enterprises that demand reliability, security, and scale.",
     logos: [
-      { id: 1, src: "https://placehold.co/150x60/f0f0f0/ccc?text=Twitch", alt: "Twitch Logo" },
-      { id: 2, src: "https://placehold.co/150x60/f0f0f0/ccc?text=Facebook", alt: "Facebook Logo" },
-      { id: 3, src: "https://placehold.co/180x70/333/fff?text=Google", alt: "Google Logo" },
-      { id: 4, src: "https://placehold.co/150x60/f0f0f0/ccc?text=YouTube", alt: "YouTube Logo" },
-      { id: 5, src: "https://placehold.co/150x60/f0f0f0/ccc?text=Pinterest", alt: "Pinterest Logo" },
-      { id: 6, src: "https://placehold.co/150x60/f0f0f0/ccc?text=Vimeo", alt: "Vimeo Logo" },
-      { id: 7, src: "https://placehold.co/150x60/f0f0f0/ccc?text=Slack", alt: "Slack Logo" },
+      { id: 1, src: logo1, alt: "Access Health" },
+      { id: 2, src: logo2, alt: "Corror Health" },
+      { id: 3, src: logo3, alt: "Election" },
+      { id: 4, src: logo4, alt: "India Cements" },
+      { id: 5, src: logo5, alt: "Mahindra" },
+      { id: 6, src: logo6, alt: "Maxval" },
+      { id: 7, src: logo7, alt: "Motorola" },
+      { id: 8, src: logo8, alt: "Redington" },
+      { id: 9, src: logo9, alt: "Royal Sundaram" },
     ]
   },
 

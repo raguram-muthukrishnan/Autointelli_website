@@ -1,17 +1,39 @@
 /* src/index.css */
 @import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
 @import url('https://fonts.googleapis.com/css2?family=Bellota+Text:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap');
+
+/* Lenis smooth scroll */
+html.lenis {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
 
 @font-face {
   font-family: 'Sk-Modernist';
-  src: url('/fonts/Sk-Modernist-Regular.ttf') format('truetype');
+  src: url('/fonts/Sk-Modernist-Regular.otf') format('opentype');
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Sk-Modernist';
-  src: url('/fonts/Sk-Modernist-Bold.ttf') format('truetype');
+  src: url('/fonts/Sk-Modernist-Bold.otf') format('opentype');
   font-weight: 700;
   font-style: normal;
 }

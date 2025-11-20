@@ -1,4 +1,5 @@
 import './IntegrationHub.css';
+import seamlessImage from '../assets/stockimages/seem.jpg';
 
 const integrations = ['Slack', 'Jira', 'ServiceNow', 'PagerDuty', 'AWS', 'Azure', 'Google Cloud', 'Datadog'];
 
@@ -7,8 +8,7 @@ const IntegrationHub = () => {
     <section className="integration-hub" aria-labelledby="integration-hub-title">
       <div className="integration-hub-inner">
         <div className="integration-visual" aria-hidden="true">
-          <div className="integration-glow" />
-          <span>Connected Ecosystem</span>
+          <img src={seamlessImage} alt="Seamless Integrations" className="integration-image" />
         </div>
         <div className="integration-copy">
           <span className="integration-tag">INTEGRATION HUB</span>

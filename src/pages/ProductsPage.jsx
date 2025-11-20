@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import './ProductsPage.css';
 import { productsData } from '../../data/productsData';
-import CardSwap, { Card } from '../components/CardSwap'; 
+import CardSwap, { Card } from '../components/CardSwap';
+import { getFeatureIcon } from '../components/FeatureIcons'; 
 
 // Import product images
 import nmsImage from '../assets/Products/nms.webp';
@@ -9,13 +10,27 @@ import opsDutyImage from '../assets/Products/opsduty.webp';
 import intelliFlowImage from '../assets/Products/intelliflow.webp';
 import aliceImage from '../assets/Products/alice.png';
 
+// Import images from stockimages folder for Securita, IntelliDesk, and Asset
+import securitaImage from '../assets/stockimages/Hypervisor Monitoring.png';
+import intelliDeskImage from '../assets/stockimages/ticketing system automation.png';
+import assetImage from '../assets/stockimages/Orchestration.png';
+
 const ProductsPage = () => {
+  // Hero animation uses these 4 images:
+  // 1. nmsImage (nms.webp)
+  // 2. opsDutyImage (opsduty.webp) 
+  // 3. intelliFlowImage (intelliflow.webp)
+  // 4. aliceImage (alice.png)
+  
   // Map product IDs to their images
   const productImages = {
     'nms': nmsImage,
+    'securita': securitaImage,
     'incident-response': opsDutyImage,
     'flow': intelliFlowImage,
-    'alice-ai': aliceImage
+    'alice-ai': aliceImage,
+    'it-desk': intelliDeskImage,
+    'asset': assetImage
   };
 
   // State and handlers for the contact form
@@ -54,40 +69,41 @@ const ProductsPage = () => {
 
   return (
     <div className="products-page-container">
-      {/* --- Main Page Hero with Layered CardSwap --- */}
+      {/* --- Main Page Hero with CardSwap Animation --- */}
       <header className="products-page-hero">
-        {/* The CardSwap component now acts as the background layer */}
-        <div className="hero-animation-container">
-          <CardSwap
-            cardDistance={50}
-            verticalDistance={60}
-            delay={4000}
-            width={450}
-            height={350}
-          >
-            {productsData.products.slice(0, 4).map(product => (
-              <Card key={product.id}>
-                <div className="card-image-container">
-                  <img 
-                    src={productImages[product.id] || 'https://placehold.co/450x200/1a202c/fff?text=' + encodeURIComponent(product.name)} 
-                    alt={product.name} 
-                    className="card-image"
-                  />
-                </div>
-                <div className="card-content">
-                  <h3>{product.name}</h3>
-                  <p>{product.hero?.tagline || 'Discover powerful IT solutions'}</p>
-                </div>
-              </Card>
-            ))}
-          </CardSwap>
-        </div>
-        
-        {/* The text content is the top layer */}
+        {/* The content wrapper contains both text and animation */}
         <div className="hero-content-wrapper">
+          {/* Text on the left */}
           <div className="hero-text-container">
             <h1 className="products-page-title">{productsData.pageHero.title}</h1>
             <p className="products-page-subtitle">{productsData.pageHero.subtitle}</p>
+          </div>
+          
+          {/* CardSwap animation on the right */}
+          <div className="hero-animation-container">
+            <CardSwap
+              cardDistance={30}
+              verticalDistance={35}
+              delay={4000}
+              width={450}
+              height={350}
+            >
+              {productsData.products.slice(0, 4).map(product => (
+                <Card key={product.id}>
+                  <div className="card-image-container">
+                    <img 
+                      src={productImages[product.id] || 'https://placehold.co/450x200/1a202c/fff?text=' + encodeURIComponent(product.name)} 
+                      alt={product.name} 
+                      className="card-image"
+                    />
+                  </div>
+                  <div className="card-content">
+                    <h3>{product.name}</h3>
+                    <p>{product.hero?.tagline || 'Discover powerful IT solutions'}</p>
+                  </div>
+                </Card>
+              ))}
+            </CardSwap>
           </div>
         </div>
       </header>
@@ -112,42 +128,9 @@ const ProductsPage = () => {
               <p className="product-summary">{product.platformOverview?.summary || product.intro?.solution || 'Discover how this powerful solution can transform your IT operations and drive business success.'}</p>
               <div className="features-grid">
                 {(product.keyFeatures?.features || []).slice(0, 4).map((feature, idx) => {
-                  // Icon mapping based on feature keywords
-                  const getFeatureIcon = (title, description) => {
-                    const text = (title + ' ' + description).toLowerCase();
-                    
-                    // AI/Intelligence related
-                    if (text.includes('ai') || text.includes('intelligent') || text.includes('smart') || text.includes('alice')) return '🤖';
-                    // Automation/Workflow
-                    if (text.includes('automat') || text.includes('workflow') || text.includes('orchestr')) return '⚙️';
-                    // Analytics/Insights/Dashboard
-                    if (text.includes('analyt') || text.includes('insight') || text.includes('dashboard') || text.includes('visual')) return '📊';
-                    // Monitoring/Observability
-                    if (text.includes('monitor') || text.includes('observ') || text.includes('track') || text.includes('detect')) return '👁️';
-                    // Alert/Notification
-                    if (text.includes('alert') || text.includes('notif') || text.includes('incident')) return '🔔';
-                    // Integration/API
-                    if (text.includes('integrat') || text.includes('api') || text.includes('connect')) return '🔌';
-                    // Performance/Speed
-                    if (text.includes('perform') || text.includes('speed') || text.includes('fast') || text.includes('optim')) return '⚡';
-                    // Security/Protection
-                    if (text.includes('secur') || text.includes('protect') || text.includes('safe')) return '🔒';
-                    // Collaboration/Team
-                    if (text.includes('collab') || text.includes('team') || text.includes('share')) return '👥';
-                    // Scalability/Growth
-                    if (text.includes('scal') || text.includes('grow') || text.includes('expand')) return '📈';
-                    // Reporting/Documentation
-                    if (text.includes('report') || text.includes('document') || text.includes('log')) return '📝';
-                    // Network/Infrastructure
-                    if (text.includes('network') || text.includes('infra') || text.includes('topology')) return '🌐';
-                    // Default fallback icons (cycling through variety)
-                    const defaultIcons = ['💡', '🎯', '🚀', '⭐'];
-                    return defaultIcons[idx % defaultIcons.length];
-                  };
-                  
                   return (
                     <div key={idx} className="feature-card">
-                      <div className="feature-icon">{getFeatureIcon(feature.title, feature.description)}</div>
+                      <div className="feature-icon">{getFeatureIcon(feature.title, feature.description, idx)}</div>
                       <h4 className="feature-title">{feature.title}</h4>
                       <p className="feature-description">{feature.description}</p>
                     </div>

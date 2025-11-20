@@ -126,6 +126,7 @@ const DotGrid = ({
 
         let style = baseColor;
         let glowIntensity = 0;
+        let dotOpacity = 0.1; // Low base opacity for all dots
         
         if (dsq <= proxSq) {
           const dist = Math.sqrt(dsq);
@@ -135,10 +136,14 @@ const DotGrid = ({
           const b = Math.round(baseRgb.b + (activeRgb.b - baseRgb.b) * t);
           style = `rgb(${r},${g},${b})`;
           glowIntensity = t; // Use proximity factor for glow intensity
+          dotOpacity = 0.1 + (0.9 * t); // Increase opacity near cursor (0.1 to 1.0)
         }
 
         ctx.save();
         ctx.translate(ox, oy);
+        
+        // Set opacity for all dots (low by default, high near cursor)
+        ctx.globalAlpha = dotOpacity;
         
         // Add glow effect when near cursor
         if (glowIntensity > 0) {
@@ -148,10 +153,6 @@ const DotGrid = ({
           ctx.shadowBlur = glowBlur;
           ctx.shadowOffsetX = 0;
           ctx.shadowOffsetY = 0;
-          // Draw the glow multiple times for intensity
-          ctx.globalAlpha = 0.8 * glowIntensity;
-        } else {
-          ctx.globalAlpha = 1;
         }
         
         ctx.fillStyle = style;

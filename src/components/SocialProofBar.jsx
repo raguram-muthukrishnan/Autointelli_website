@@ -303,8 +303,8 @@ const SocialProofBar = () => {
           className="social-proof-loop"
           logos={logos}
           speed={80}
-          logoHeight={45}
-          gap={48}
+          logoHeight={60}
+          gap={60}
           scaleOnHover
         />
       </div>

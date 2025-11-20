@@ -1,5 +1,9 @@
 import { FiArrowUpRight, FiGlobe, FiShield, FiCpu } from 'react-icons/fi';
 import './PlatformOverview.css';
+import ir1 from '../assets/stockimages/ir1.png';
+import ir2 from '../assets/stockimages/ir2.png';
+import ir3 from '../assets/stockimages/ir3.png';
+import dashboardImage from '../assets/stockimages/database monitoring.png';
 
 const heroHighlights = [
   'Unlock the first AI-powered customer operations suite.',
@@ -13,36 +17,24 @@ const primaryCards = [
     title: 'IT Operations Management',
     description: 'Orchestrate observability, capacity, and performance with a unified command center.',
     badge: 'Fin',
-    imageLabel: 'Automation snapshot'
+    imageLabel: 'Automation snapshot',
+    image: ir1
   },
   {
     icon: <FiShield />,
     title: 'Security & Compliance',
     description: 'Bring proactive threat detection, compliance reporting, and access governance together.',
     badge: 'Workflows',
-    imageLabel: 'Workflow builder overview'
+    imageLabel: 'Workflow builder overview',
+    image: ir2
   },
   {
     icon: <FiCpu />,
     title: 'Automation & Orchestration',
     description: 'Automate resolutions, approvals, and delivery pipelines with reusable runbooks.',
     badge: 'Runbooks',
-    imageLabel: 'Automation canvas'
-  }
-];
-
-const secondaryCards = [
-  {
-    title: 'AI-powered Inbox',
-    description: 'Give teams a streamlined inbox with AI-suggested responses and case triage.'
-  },
-  {
-    title: 'Article Suggestions',
-    description: 'Surface the right knowledge automatically and keep documentation always relevant.'
-  },
-  {
-    title: 'Conversation Topics',
-    description: 'Track trending issues with visual analytics so leaders can respond in real time.'
+    imageLabel: 'Automation canvas',
+    image: ir3
   }
 ];
 
@@ -57,7 +49,7 @@ const PlatformOverview = () => {
             Reduce support volumes and increase satisfaction in minutes with Autointelli&apos;s AI-powered chatbots and
             automation tools.
           </p>
-          <a href="#features" className="platform-hero-cta">
+          <a href="/products" className="platform-hero-cta">
             Learn about automation
             <FiArrowUpRight aria-hidden="true" />
           </a>
@@ -65,7 +57,7 @@ const PlatformOverview = () => {
 
         <div className="platform-hero-visual" aria-hidden="true">
           <div className="platform-hero-card">
-            <span className="platform-hero-placeholder">UI preview placeholder</span>
+            <img src={dashboardImage} alt="Dashboard Preview" className="platform-hero-image" />
           </div>
         </div>
 
@@ -86,25 +78,13 @@ const PlatformOverview = () => {
                 <h3>{card.title}</h3>
               </header>
               <div className="primary-image" aria-hidden="true">
-                <span>{card.imageLabel}</span>
+                <img src={card.image} alt={card.imageLabel} />
               </div>
               <p>{card.description}</p>
+              <a href="/products" className="primary-learn-more">Learn More</a>
               <div className="primary-icon" aria-hidden="true">
                 {card.icon}
               </div>
-            </article>
-          ))}
-        </div>
-
-        <div className="platform-secondary-grid">
-          {secondaryCards.map((card) => (
-            <article key={card.title} className="platform-secondary-card">
-              <h4>{card.title}</h4>
-              <p>{card.description}</p>
-              <a href="#features" className="secondary-link">
-                Learn more
-                <FiArrowUpRight aria-hidden="true" />
-              </a>
             </article>
           ))}
         </div>

@@ -13,7 +13,7 @@ export default function Hero() {
 
       <div className="hero-content">
         <p className="hero-title">
-          Master your Incidents: Take Control Of Your IT Operations
+          Master your Incidents:<br />Take Control Of Your IT Operations
         </p>
         <p className="hero-subtitle">
           {`Say "NO" to Application downtime with Autointelli's Real time Observability Platform`}
@@ -44,10 +44,9 @@ export default function Hero() {
 
       <div className="hero-laptop-image" data-name="Group 2 23">
         <img alt="Laptop showing a dashboard" src={laptopImage} />
-      </div>
-      
-      <div className="hero-video-placeholder" data-name="Video Placeholder">
-        <img alt="Play video button" src={imgVideoPlaceholder} style={{borderRadius: '50%'}} />
+        <div className="hero-video-placeholder" data-name="Video Placeholder">
+          <img alt="Play video button" src={imgVideoPlaceholder} style={{borderRadius: '50%'}} />
+        </div>
       </div>
     </div>
   );

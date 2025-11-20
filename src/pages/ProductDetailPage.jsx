@@ -4,6 +4,18 @@ import { productsData } from '../../data/productsData';
 import DotGrid from '../components/DotGrid';
 import './ProductDetailPage.css';
 
+// Import stock images
+import databaseMonitoring from '../assets/stockimages/database monitoring.png';
+import bandwidthMonitoring from '../assets/stockimages/Bandwith Monitoring.png';
+import cloudMonitoring from '../assets/stockimages/Cloud Monitoring.png';
+import hypervisorMonitoring from '../assets/stockimages/Hypervisor Monitoring.png';
+import serviceMonitoring from '../assets/stockimages/service monitoring.png';
+import orchestration from '../assets/stockimages/Orchestration.png';
+import ticketingSystem from '../assets/stockimages/ticketing system automation.png';
+import ir1 from '../assets/stockimages/ir1.png';
+import ir2 from '../assets/stockimages/ir2.png';
+import ir3 from '../assets/stockimages/ir3.png';
+
 // A custom hook for the animated counter
 const useCountUp = (end, duration = 2) => {
   const [count, setCount] = useState(0);
@@ -45,6 +57,41 @@ const ProductDetailPage = () => {
   const product = productsData.products.find(p => p.id === productId);
 
   const [activeTab, setActiveTab] = useState(0);
+
+  // Product color mapping
+  const getProductColors = (id) => {
+    const colorMap = {
+      'nms': { primary: '#2e3591', light: '#c5cae9', text: '#2e3591', dotColor: '#7a80c4' },
+      'securita': { primary: '#ed1265', light: '#ffc9e0', text: '#ed1265', dotColor: '#ff6b9d' },
+      'incident-response': { primary: '#91298e', light: '#e1c4df', text: '#91298e', dotColor: '#c76bc4' },
+      'flow': { primary: '#26b4e8', light: '#b3e5f7', text: '#26b4e8', dotColor: '#6dd5ff' },
+      'alice-ai': { primary: '#f58220', light: '#ffe0c2', text: '#f58220', dotColor: '#ffad5c' },
+      'it-desk': { primary: '#8dc641', light: '#dcefc0', text: '#8dc641', dotColor: '#b5e06f' },
+      'asset': { primary: '#f14e40', light: '#ffd4cf', text: '#f14e40', dotColor: '#ff7a6b' }
+    };
+    return colorMap[id] || { primary: '#2e3591', light: '#c5cae9', text: '#2e3591', dotColor: '#7a80c4' };
+  };
+
+  const colors = getProductColors(productId);
+
+  // Stock images array for random selection
+  const stockImages = [
+    databaseMonitoring,
+    bandwidthMonitoring,
+    cloudMonitoring,
+    hypervisorMonitoring,
+    serviceMonitoring,
+    orchestration,
+    ticketingSystem,
+    ir1,
+    ir2,
+    ir3
+  ];
+
+  // Get random stock image
+  const getRandomStockImage = (index) => {
+    return stockImages[index % stockImages.length];
+  };
 
   // Load GSAP for hover animations
   useEffect(() => {
@@ -128,7 +175,7 @@ const ProductDetailPage = () => {
   };
 
   return (
-    <div className="product-detail-page">
+    <div className={`product-detail-page product-${productId}`}>
       {/* 1. HERO SECTION - Now checks if 'hero' data exists */}
       {product.hero && (
         <header className="pdp-hero">
@@ -137,8 +184,8 @@ const ProductDetailPage = () => {
             <DotGrid
               dotSize={6}
               gap={19}
-              baseColor="#404040"
-              activeColor="#ffea00"
+              baseColor={colors.dotColor}
+              activeColor={colors.primary}
               proximity={290}
               shockRadius={250}
               shockStrength={5}
@@ -202,8 +249,11 @@ const ProductDetailPage = () => {
                     </div>
                   </div>
                   <div className="card-image-section">
+                    {/* Placeholder for future reference: 
+                    <img src={`https://placehold.co/600x400/${colors.light.replace('#', '')}/${colors.text.replace('#', '')}?text=Challenge+Illustration`} alt="The Challenge" className="card-image" />
+                    */}
                     <img 
-                      src="https://placehold.co/600x400/ffcdd2/d32f2f?text=Challenge+Illustration" 
+                      src={getRandomStockImage(0)}
                       alt="The Challenge" 
                       className="card-image"
                     />
@@ -218,8 +268,11 @@ const ProductDetailPage = () => {
               <div className="pdp-intro-card solution-card">
                 <div className="card-content-wrapper">
                   <div className="card-image-section">
+                    {/* Placeholder for future reference:
+                    <img src={`https://placehold.co/600x400/${colors.light.replace('#', '')}/${colors.text.replace('#', '')}?text=Solution+Illustration`} alt="The Solution" className="card-image" />
+                    */}
                     <img 
-                      src="https://placehold.co/600x400/c8e6c9/2e7d32?text=Solution+Illustration" 
+                      src={getRandomStockImage(1)}
                       alt="The Solution" 
                       className="card-image"
                     />
@@ -263,8 +316,11 @@ const ProductDetailPage = () => {
                     onMouseLeave={(e) => handleCardHover(e.currentTarget, false)}
                   >
                     <div className="bento-card-bg">
+                      {/* Placeholder for future reference:
+                      <img src={`https://placehold.co/800x600/1a202c/${colors.primary.replace('#', '')}?text=${encodeURIComponent(feature.title)}`} alt={feature.title} className="bento-card-image" />
+                      */}
                       <img 
-                        src={`https://placehold.co/800x600/1a202c/F0CE1D?text=${encodeURIComponent(feature.title)}`}
+                        src={getRandomStockImage(index + 2)}
                         alt={feature.title}
                         className="bento-card-image"
                       />
@@ -322,8 +378,8 @@ const ProductDetailPage = () => {
                 >
                   <div className="benefit-card-icon">
                     <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M5 3h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z" stroke="#82C43C" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                      <path d="M9 12l2 2 4-4" stroke="#82C43C" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                      <path d="M5 3h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z" stroke="#2e3591" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                      <path d="M9 12l2 2 4-4" stroke="#2e3591" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                     </svg>
                   </div>
                   <h3 className="benefit-card-title">{role.name}</h3>
@@ -358,8 +414,11 @@ const ProductDetailPage = () => {
               {/* Left Side - Single Image */}
               <div className="pdp-cta-left">
                 <div className="pdp-cta-image-wrapper">
+                  {/* Placeholder for future reference:
+                  <img src={`https://placehold.co/600x700/${colors.primary.replace('#', '')}/ffffff?text=Product+Illustration`} alt={product.finalCta.headline} className="pdp-cta-image" />
+                  */}
                   <img 
-                    src="https://placehold.co/600x700/7C3AED/ffffff?text=Product+Illustration" 
+                    src={getRandomStockImage(9)}
                     alt={product.finalCta.headline} 
                     className="pdp-cta-image"
                   />

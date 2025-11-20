@@ -11,10 +11,13 @@ const Footer = () => {
         <div className="footer-section">
           <h3 className="section-title">Product</h3>
           <ul className="footer-links">
-            <li><a href="#">Features</a></li>
-            <li><a href="#">Pricing</a></li>
-            <li><a href="#">Integrations</a></li>
-            <li><a href="#">API</a></li>
+            <li><a href="/products/nms">NMS</a></li>
+            <li><a href="/products/securita">Securita</a></li>
+            <li><a href="/products/flow">OPS Duty</a></li>
+            <li><a href="/products/flow">Intelliflow</a></li>
+            <li><a href="/products/alice-ai">Alice AI</a></li>
+            <li><a href="/products/it-desk">IntelliDesk</a></li>
+            <li><a href="/products/asset">IntelliAsset</a></li>
           </ul>
         </div>
 
@@ -23,7 +26,7 @@ const Footer = () => {
           <ul className="footer-links">
             <li><a href="/about">About Us</a></li>
             <li><a href="/blog">Blog</a></li>
-            <li><a href="#">Careers</a></li>
+            <li><a href="/about">Careers</a></li>
             <li><a href="/contact">Contact</a></li>
           </ul>
         </div>
@@ -31,10 +34,10 @@ const Footer = () => {
         <div className="footer-section">
           <h3 className="section-title">Support</h3>
           <ul className="footer-links">
-            <li><a href="#">Help Center</a></li>
-            <li><a href="#">Terms of Service</a></li>
-            <li><a href="#">Privacy Policy</a></li>
-            <li><a href="#">Status</a></li>
+            <li><a href="/kb">Help Center</a></li>
+            <li><a href="/contact">Terms of Service</a></li>
+            <li><a href="/contact">Privacy Policy</a></li>
+            <li><a href="/contact">Status</a></li>
             <li><a href="/admin">Admin Login</a></li>
           </ul>
         </div>
@@ -42,10 +45,10 @@ const Footer = () => {
         <div className="footer-section">
           <h3 className="section-title">Follow Us</h3>
           <ul className="footer-links">
-            <li><a href="#">Twitter</a></li>
-            <li><a href="#">LinkedIn</a></li>
-            <li><a href="#">Facebook</a></li>
-            <li><a href="#">Instagram</a></li>
+            <li><a href="https://twitter.com" target="_blank" rel="noopener noreferrer">Twitter</a></li>
+            <li><a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+            <li><a href="https://facebook.com" target="_blank" rel="noopener noreferrer">Facebook</a></li>
+            <li><a href="https://instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a></li>
           </ul>
         </div>
       </div>

@@ -51,8 +51,8 @@
   position: relative;
   overflow-x: hidden;
 
-  --logoloop-gap: 32px;
-  --logoloop-logoHeight: 28px;
+  --logoloop-gap: 60px;
+  --logoloop-logoHeight: 60px;
   --logoloop-fadeColorAuto: #fff6dd;
 }
 
@@ -98,14 +98,15 @@
 .logoloop__item img {
   height: var(--logoloop-logoHeight);
   width: auto;
+  max-width: 200px; /* Ensure consistent sizing */
   display: block;
   object-fit: contain;
   image-rendering: -webkit-optimize-contrast;
   -webkit-user-drag: none;
   pointer-events: none;
   transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  filter: grayscale(100%);
-  opacity: 0.85;
+  filter: grayscale(80%) brightness(1.1);
+  opacity: 0.9;
 }
 
 .logoloop--scale-hover .logoloop__item {
@@ -178,5 +179,58 @@
   .logoloop__item img,
   .logoloop__node {
     transition: none !important;
+  }
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .social-proof {
+    padding: 2rem 0;
+    margin-top: -30px;
+  }
+
+  .social-proof-inner {
+    gap: 1.5rem;
+  }
+
+  .social-proof-header {
+    padding: 0 20px;
+  }
+
+  .social-proof-header p {
+    font-size: 0.95rem;
+  }
+
+  .logoloop {
+    --logoloop-gap: 24px;
+    --logoloop-logoHeight: 24px;
+  }
+
+  .logoloop__item img {
+    max-width: 120px;
+  }
+}
+
+@media (max-width: 480px) {
+  .social-proof {
+    padding: 1.5rem 0;
+  }
+
+  .social-proof-tag {
+    font-size: 0.7rem;
+    padding: 0.25rem 0.85rem;
+  }
+
+  .social-proof-header p {
+    font-size: 0.9rem;
+  }
+
+  .logoloop {
+    --logoloop-gap: 20px;
+    --logoloop-logoHeight: 20px;
+  }
+
+  .logoloop__item img {
+    max-width: 100px;
   }
 }

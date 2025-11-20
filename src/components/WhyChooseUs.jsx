@@ -1,5 +1,6 @@
 import { FiCheckCircle } from 'react-icons/fi';
 import './WhyChooseUs.css';
+import whyChooseImage from '../assets/stockimages/whychoose.jpeg.jpg';
 
 const advantages = [
   { text: 'Comprehensive Visibility: Monitor every layer of your IT stack.' },
@@ -14,10 +15,7 @@ const WhyChooseUs = () => {
     <section className="why-choose" aria-labelledby="why-choose-title">
       <div className="why-choose-inner">
         <div className="why-choose-visual" aria-hidden="true">
-          <div className="why-choose-glow" />
-          <span>Integrated
-            <br />ITO<span>ps</span>
-          </span>
+          <img src={whyChooseImage} alt="Why Choose Us" className="why-choose-image" />
         </div>
         <div className="why-choose-copy">
           <span className="why-choose-tag">WHY CHOOSE US</span>
@@ -31,7 +29,7 @@ const WhyChooseUs = () => {
               </li>
             ))}
           </ul>
-          <a href="#features" className="why-choose-cta">
+          <a href="/products" className="why-choose-cta">
             View All Features
           </a>
         </div>

@@ -1,5 +1,4 @@
 import './TestimonialsCarousel.css';
-import ScrollStack, { ScrollStackItem } from './ScrollStack';
 
 const testimonials = [
   {
@@ -31,40 +30,25 @@ const TestimonialsCarousel = () => {
           </p>
         </div>
 
-        <div className="testimonials-stack-wrapper">
-          <div className="testimonials-stack-pin">
-            <ScrollStack
-              className="testimonials-scroll-stack scroll-stack-window"
-              itemDistance={140}
-              itemScale={0.045}
-              itemStackDistance={48}
-              stackPosition="28%"
-              scaleEndPosition="15%"
-              baseScale={0.8}
-              rotationAmount={0.35}
-              blurAmount={0.6}
-              useWindowScroll
-            >
-              {testimonials.map((testimonial) => (
-                <ScrollStackItem key={testimonial.name} itemClassName="testimonial-stack-card">
-                  <p className="testimonial-stack-quote">“{testimonial.quote}”</p>
-                  <div className="testimonial-stack-author">
-                    <span className="testimonial-stack-avatar" aria-hidden="true">
-                      {testimonial.name
-                        .split(' ')
-                        .map((word) => word.charAt(0))
-                        .join('')
-                        .slice(0, 2)}
-                    </span>
-                    <div>
-                      <strong>{testimonial.name}</strong>
-                      <p>{testimonial.title}</p>
-                    </div>
-                  </div>
-                </ScrollStackItem>
-              ))}
-            </ScrollStack>
-          </div>
+        <div className="testimonials-grid">
+          {testimonials.map((testimonial) => (
+            <div key={testimonial.name} className="testimonial-card">
+              <p className="testimonial-quote">"{testimonial.quote}"</p>
+              <div className="testimonial-author">
+                <span className="testimonial-avatar" aria-hidden="true">
+                  {testimonial.name
+                    .split(' ')
+                    .map((word) => word.charAt(0))
+                    .join('')
+                    .slice(0, 2)}
+                </span>
+                <div>
+                  <strong>{testimonial.name}</strong>
+                  <p>{testimonial.title}</p>
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>

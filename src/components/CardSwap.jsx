@@ -5,6 +5,7 @@ import './CardSwap.css';
 export const Card = forwardRef(({ customClass, ...rest }, ref) => (
   <div ref={ref} {...rest} className={`card-swap-card ${customClass ?? ''} ${rest.className ?? ''}`.trim()} />
 ));
+
 Card.displayName = 'Card';
 
 // UPDATED LOGIC for positioning
@@ -14,6 +15,7 @@ const makeSlot = (i, distX, distY, total) => ({
   z: -i * 50, // Changed to a fixed value for consistent depth
   zIndex: total - i
 });
+
 const placeNow = (gsap, el, slot, skew) =>
   gsap.set(el, {
     x: slot.x,
@@ -47,6 +49,7 @@ const CardSwap = ({
     script.src = 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js';
     script.onload = () => setGsap(window.gsap);
     document.body.appendChild(script);
+
     return () => {
       document.body.removeChild(script);
     };
@@ -76,9 +79,7 @@ const CardSwap = ({
     () => childArr.map(() => React.createRef()),
     [childArr.length]
   );
-
   const order = useRef(Array.from({ length: childArr.length }, (_, i) => i));
-
   const tlRef = useRef(null);
   const intervalRef = useRef();
   const container = useRef(null);
@@ -87,7 +88,9 @@ const CardSwap = ({
     if (!gsap) return; // Wait for GSAP to load
 
     const total = refs.length;
-    refs.forEach((r, i) => placeNow(gsap, r.current, makeSlot(i, cardDistance, verticalDistance, total), skewAmount));
+    refs.forEach((r, i) =>
+      placeNow(gsap, r.current, makeSlot(i, cardDistance, verticalDistance, total), skewAmount)
+    );
 
     const swap = () => {
       if (order.current.length < 2) return;
@@ -104,6 +107,7 @@ const CardSwap = ({
       });
 
       tl.addLabel('promote', `-=${config.durDrop * config.promoteOverlap}`);
+
       rest.forEach((idx, i) => {
         const el = refs[idx].current;
         const slot = makeSlot(i, cardDistance, verticalDistance, refs.length);
@@ -123,6 +127,7 @@ const CardSwap = ({
 
       const backSlot = makeSlot(refs.length - 1, cardDistance, verticalDistance, refs.length);
       tl.addLabel('return', `promote+=${config.durMove * config.returnDelay}`);
+
       tl.call(
         () => {
           gsap.set(elFront, { zIndex: backSlot.zIndex });
@@ -130,6 +135,7 @@ const CardSwap = ({
         undefined,
         'return'
       );
+
       tl.to(
         elFront,
         {
@@ -146,7 +152,7 @@ const CardSwap = ({
         order.current = [...rest, front];
       });
     };
-    
+
     intervalRef.current = window.setInterval(swap, delay);
 
     if (pauseOnHover) {
@@ -161,12 +167,14 @@ const CardSwap = ({
       };
       node.addEventListener('mouseenter', pause);
       node.addEventListener('mouseleave', resume);
+
       return () => {
         node.removeEventListener('mouseenter', pause);
         node.removeEventListener('mouseleave', resume);
         clearInterval(intervalRef.current);
       };
     }
+
     return () => clearInterval(intervalRef.current);
   }, [gsap, cardDistance, verticalDistance, delay, pauseOnHover, skewAmount, easing, config, refs]);
 
@@ -192,4 +200,3 @@ const CardSwap = ({
 };
 
 export default CardSwap;
-

@@ -17,9 +17,9 @@
   box-sizing: border-box;
 
   /* Style */
-  background-color: #1A1E23; /* A dark background for the footer */
-  border-top-left-radius: 50px;  /* Added top-left corner radius */
-  border-top-right-radius: 50px; /* Added top-right corner radius */
+  background-color: #000000; /* Pure black background */
+  border-top-left-radius: 0;  /* Removed curved edges */
+  border-top-right-radius: 0; /* Removed curved edges */
 }
 
 /* Container for the link sections */
@@ -39,11 +39,11 @@
 }
 
 .section-title {
-  color: #FFD600; /* Highlight color on hover */
+  color: #F0CE1D !important; /* Bright yellow from color palette */
   font-size: 20px;
   font-weight: 700;
   margin-top: 0;
-  text-align: center;
+  text-align: left;
   margin-bottom: 40px; /* Gap between title and links */
 }
 
@@ -52,7 +52,7 @@
   padding: 0;
   margin: 0;
   display: flex;
-  text-align: center;
+  text-align: left;
   flex-direction: column;
   gap: 15px; /* Space between each link */
 }
@@ -86,17 +86,17 @@
   align-items: center;
   
   /* Sizing */
-  width: 216.063px;
-  height: 104px;
+  width: 160px;
+  height: 75px;
   flex-shrink: 0;
 
   /* Style */
-  border-radius: 28px;
+  border-radius: 20px;
   background: #FFF;
 }
 
 .footer-logo {
-  max-width: 80%; /* Ensure logo fits inside the container */
+  max-width: 75%; /* Ensure logo fits inside the container */
   height: auto;
 }
 
@@ -121,8 +121,8 @@
     padding: 40px 20px;
     gap: 40px;
     min-height: auto;
-    border-top-left-radius: 40px;
-    border-top-right-radius: 40px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
   }
 
   /* Changed to a 2x2 grid layout */
@@ -145,7 +145,7 @@
 
   .section-title {
     margin-bottom: 20px;
-    color:#FFD600
+    color: #F0CE1D !important;
   }
 
   .footer-bottom {

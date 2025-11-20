@@ -6,7 +6,7 @@
 
 /* --- 1. Hero Section --- */
 .pdp-hero {
-  background-color: #000000;
+  background-color: #2e3591;
   color: #fff;
   padding: 100px 40px 60px;
   position: relative;
@@ -21,7 +21,8 @@
   width: 100%;
   height: 100%;
   z-index: 1;
-  opacity: 0.3;
+  opacity: 0.7 !important; /* Visible so dots show and glow on hover */
+  transition: opacity 0.4s ease;
 }
 
 .pdp-hero-content {
@@ -48,8 +49,8 @@
   margin-bottom: 30px;
 }
 .pdp-hero-ctas { display: flex; gap: 15px; flex-wrap: wrap; }
-.pdp-cta-primary { background-color: #F0CE1D; color: #212529; border: none; border-radius: 50px; padding: 15px 35px; font-size: 16px; font-weight: 700; cursor: pointer; transition: all 0.3s; }
-.pdp-cta-primary:hover { background-color: #F8E064; transform: translateY(-3px); }
+.pdp-cta-primary { background-color: #2e3591; color: #ffffff; border: none; border-radius: 50px; padding: 15px 35px; font-size: 16px; font-weight: 700; cursor: pointer; transition: all 0.3s; }
+.pdp-cta-primary:hover { background-color: #3d47a8; transform: translateY(-3px); }
 .pdp-cta-secondary { background-color: transparent; color: #fff; border: 1px solid #fff; border-radius: 50px; padding: 15px 35px; font-size: 16px; font-weight: 700; cursor: pointer; transition: all 0.3s; }
 .pdp-cta-secondary:hover { background-color: #fff; color: #212529; }
 .pdp-hero-image { width: 100%; border-radius: 16px; box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3); }
@@ -144,30 +145,30 @@
 
 /* Problem Card Specific */
 .problem-card {
-  color: #d32f2f;
-  border-left: 6px solid #d32f2f;
+  color: #2e3591;
+  border-left: 6px solid #2e3591;
 }
 
 .problem-card::before {
-  color: #d32f2f;
+  color: #2e3591;
 }
 
 .problem-card .card-image-section {
-  background: linear-gradient(135deg, #ffebee 0%, #ffcdd2 100%);
+  background: linear-gradient(135deg, #e8eaf6 0%, #c5cae9 100%);
 }
 
 /* Solution Card Specific */
 .solution-card {
-  color: #2e7d32;
-  border-left: 6px solid #2e7d32;
+  color: #2e3591;
+  border-left: 6px solid #2e3591;
 }
 
 .solution-card::before {
-  color: #2e7d32;
+  color: #2e3591;
 }
 
 .solution-card .card-image-section {
-  background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+  background: linear-gradient(135deg, #e8eaf6 0%, #c5cae9 100%);
 }
 
 /* Card Header */
@@ -190,15 +191,15 @@
 }
 
 .problem-icon {
-  background: linear-gradient(135deg, #ffebee 0%, #ffcdd2 100%);
-  color: #d32f2f;
-  box-shadow: 0 4px 20px rgba(211, 47, 47, 0.2);
+  background: linear-gradient(135deg, #e8eaf6 0%, #c5cae9 100%);
+  color: #2e3591;
+  box-shadow: 0 4px 20px rgba(46, 53, 145, 0.2);
 }
 
 .solution-icon {
-  background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
-  color: #2e7d32;
-  box-shadow: 0 4px 20px rgba(46, 125, 50, 0.2);
+  background: linear-gradient(135deg, #e8eaf6 0%, #c5cae9 100%);
+  color: #2e3591;
+  box-shadow: 0 4px 20px rgba(46, 53, 145, 0.2);
 }
 
 .pdp-intro-card:hover .card-icon {
@@ -239,15 +240,15 @@
 }
 
 .problem-badge {
-  background: linear-gradient(135deg, #d32f2f 0%, #c62828 100%);
+  background: linear-gradient(135deg, #2e3591 0%, #3d47a8 100%);
   color: #ffffff;
-  box-shadow: 0 2px 8px rgba(211, 47, 47, 0.3);
+  box-shadow: 0 2px 8px rgba(46, 53, 145, 0.3);
 }
 
 .solution-badge {
-  background: linear-gradient(135deg, #2e7d32 0%, #1b5e20 100%);
+  background: linear-gradient(135deg, #2e3591 0%, #3d47a8 100%);
   color: #ffffff;
-  box-shadow: 0 2px 8px rgba(46, 125, 50, 0.3);
+  box-shadow: 0 2px 8px rgba(46, 53, 145, 0.3);
 }
 
 /* Connector */
@@ -264,18 +265,18 @@
 .connector-line {
   width: 3px;
   height: 80px;
-  background: linear-gradient(180deg, transparent, #F0CE1D, transparent);
+  background: linear-gradient(180deg, transparent, #2e3591, transparent);
 }
 
 .connector-icon {
   width: 72px;
   height: 72px;
-  background: linear-gradient(135deg, #F0CE1D 0%, #F8E064 100%);
+  background: linear-gradient(135deg, #2e3591 0%, #3d47a8 100%);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 8px 24px rgba(240, 206, 29, 0.4);
+  box-shadow: 0 8px 24px rgba(46, 53, 145, 0.4);
   animation: pulse 2s ease-in-out infinite;
   z-index: 2;
 }
@@ -283,11 +284,11 @@
 @keyframes pulse {
   0%, 100% {
     transform: scale(1);
-    box-shadow: 0 8px 24px rgba(240, 206, 29, 0.4);
+    box-shadow: 0 8px 24px rgba(46, 53, 145, 0.4);
   }
   50% {
     transform: scale(1.08);
-    box-shadow: 0 12px 32px rgba(240, 206, 29, 0.6);
+    box-shadow: 0 12px 32px rgba(46, 53, 145, 0.6);
   }
 }
 
@@ -405,7 +406,7 @@
 }
 
 .bento-card:hover {
-  border-color: rgba(240, 206, 29, 0.5);
+  border-color: rgba(46, 53, 145, 0.5);
 }
 
 /* Large cards span 2 columns */
@@ -446,7 +447,7 @@
 .bento-glow {
   position: absolute;
   inset: -2px;
-  background: linear-gradient(135deg, #F0CE1D 0%, #F8E064 50%, #F0CE1D 100%);
+  background: linear-gradient(135deg, #2e3591 0%, #3d47a8 50%, #2e3591 100%);
   border-radius: 24px;
   opacity: 0;
   filter: blur(20px);
@@ -561,7 +562,7 @@
 
 .pdp-benefits-tag {
   display: inline-block;
-  color: #82C43C;
+  color: #2e3591;
   font-size: 14px;
   font-weight: 600;
   text-transform: uppercase;
@@ -591,7 +592,8 @@
 }
 
 .benefit-card:hover {
-  border-color: #F0CE1D;
+  border-color: #2e3591 !important;
+  box-shadow: 0 12px 35px rgba(46, 53, 145, 0.15) !important;
 }
 
 .benefit-card-icon {
@@ -607,7 +609,7 @@
 }
 
 .benefit-card:hover .benefit-card-icon {
-  background: #FFF9E6;
+  background: #e8eaf6;
   transform: scale(1.05);
 }
 
@@ -677,8 +679,8 @@
 }
 
 .benefit-card:hover .benefit-card-arrow {
-  background: #F0CE1D;
-  color: #1a202c;
+  background: #2e3591;
+  color: #ffffff;
   transform: translateX(5px);
 }
 
@@ -689,7 +691,7 @@
 }
 
 .pdp-roi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; text-align: center; }
-.roi-value { font-size: 52px; font-weight: 700; color: #F0CE1D; display: block; }
+.roi-value { font-size: 52px; font-weight: 700; color: #2e3591; display: block; }
 .roi-label { font-size: 16px; color: #6c757d; margin-top: 5px; display: block; }
 
 /* --- 13. Final CTA Section --- */
@@ -712,7 +714,7 @@
 
 /* Left Side - Image */
 .pdp-cta-left {
-  background: linear-gradient(180deg, #fbff00c1 0%, #fff86d 100%);
+  background: linear-gradient(180deg, #2e3591 0%, #3d47a8 100%);
   padding: 20px;
   display: flex;
   align-items: center;
@@ -760,8 +762,8 @@
 
 .pdp-cta-badge {
   display: inline-block;
-  background: linear-gradient(135deg, #F0CE1D 0%, #F8E064 100%);
-  color: #1a202c;
+  background: linear-gradient(135deg, #2e3591 0%, #3d47a8 100%);
+  color: #ffffff;
   padding: 8px 20px;
   border-radius: 20px;
   font-size: 13px;
@@ -814,8 +816,8 @@
 }
 
 .pdp-cta-btn-primary {
-  background: linear-gradient(135deg, #F0CE1D 0%, #F8E064 100%);
-  color: #1a202c;
+  background: linear-gradient(135deg, #2e3591 0%, #3d47a8 100%);
+  color: #ffffff;
   border: none;
   padding: 15px 35px;
   border-radius: 50px;
@@ -824,12 +826,12 @@
   cursor: pointer;
   transition: all 0.3s;
   font-family: 'DM Sans', sans-serif;
-  box-shadow: 0 4px 15px rgba(240, 206, 29, 0.3);
+  box-shadow: 0 4px 15px rgba(46, 53, 145, 0.3);
 }
 
 .pdp-cta-btn-primary:hover {
   transform: translateY(-3px);
-  box-shadow: 0 8px 25px rgba(240, 206, 29, 0.5);
+  box-shadow: 0 8px 25px rgba(46, 53, 145, 0.5);
 }
 
 .pdp-cta-btn-secondary {
@@ -863,7 +865,7 @@
 
 /* --- Not Found Fallback --- */
 .product-not-found { text-align: center; padding: 100px 20px; }
-.product-not-found a { color: #F0CE1D; font-weight: 700; text-decoration: none; }
+.product-not-found a { color: #2e3591; font-weight: 700; text-decoration: none; }
 
 /* --- Responsive Styles --- */
 @media (max-width: 1400px) {
@@ -1057,3 +1059,712 @@
   }
 }
 
+
+
+/* ============================================
+   SECURITA PRODUCT - PINK THEME (#ed1265)
+   ============================================ */
+
+/* Hero Section */
+.product-securita .pdp-hero {
+  background-color: #ed1265;
+}
+
+/* Primary CTA Buttons */
+.product-securita .pdp-cta-primary {
+  background-color: #ed1265;
+  color: #ffffff;
+}
+
+.product-securita .pdp-cta-primary:hover {
+  background-color: #ff1a75;
+}
+
+/* ROI Stats */
+.product-securita .roi-value {
+  color: #ed1265;
+}
+
+/* Bento Cards Hover */
+.product-securita .bento-card:hover {
+  border-color: rgba(237, 18, 101, 0.5);
+}
+
+/* Bento Glow Effect */
+.product-securita .bento-glow {
+  background: linear-gradient(135deg, #ed1265 0%, #ff1a75 50%, #ed1265 100%);
+}
+
+/* Benefits Section Tag */
+.product-securita .pdp-benefits-tag {
+  color: #ed1265;
+}
+
+/* Benefit Cards Hover */
+.product-securita .benefit-card:hover {
+  border-color: #ed1265 !important;
+  box-shadow: 0 12px 35px rgba(237, 18, 101, 0.15) !important;
+}
+
+.product-securita .benefit-card:hover .benefit-card-icon {
+  background: #ffe8f3;
+}
+
+.product-securita .benefit-card:hover .benefit-card-arrow {
+  background: #ed1265;
+  color: #ffffff;
+}
+
+/* Benefit Card Icons */
+.product-securita .benefit-card-icon svg path {
+  stroke: #ed1265;
+}
+
+/* Problem/Solution Cards */
+.product-securita .problem-card {
+  color: #ed1265;
+  border-left: 6px solid #ed1265;
+}
+
+.product-securita .problem-card .card-image-section {
+  background: linear-gradient(135deg, #ffe8f3 0%, #ffc9e0 100%);
+}
+
+.product-securita .problem-icon {
+  background: linear-gradient(135deg, #ffe8f3 0%, #ffc9e0 100%);
+  color: #ed1265;
+  box-shadow: 0 4px 20px rgba(237, 18, 101, 0.2);
+}
+
+.product-securita .solution-card {
+  color: #ed1265;
+  border-left: 6px solid #ed1265;
+}
+
+.product-securita .solution-card .card-image-section {
+  background: linear-gradient(135deg, #ffe8f3 0%, #ffc9e0 100%);
+}
+
+.product-securita .solution-icon {
+  background: linear-gradient(135deg, #ffe8f3 0%, #ffc9e0 100%);
+  color: #ed1265;
+  box-shadow: 0 4px 20px rgba(237, 18, 101, 0.2);
+}
+
+/* Connector Icon */
+.product-securita .connector-line {
+  background: linear-gradient(180deg, transparent, #ed1265, transparent);
+}
+
+.product-securita .connector-icon {
+  background: linear-gradient(135deg, #ed1265 0%, #ff1a75 100%);
+  box-shadow: 0 8px 24px rgba(237, 18, 101, 0.4);
+}
+
+@keyframes pulse-securita {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 8px 24px rgba(237, 18, 101, 0.4);
+  }
+  50% {
+    transform: scale(1.08);
+    box-shadow: 0 12px 32px rgba(237, 18, 101, 0.6);
+  }
+}
+
+.product-securita .connector-icon {
+  animation: pulse-securita 2s ease-in-out infinite;
+}
+
+/* Card Badges */
+.product-securita .problem-badge,
+.product-securita .solution-badge {
+  background: linear-gradient(135deg, #ed1265 0%, #ff1a75 100%);
+  box-shadow: 0 2px 8px rgba(237, 18, 101, 0.3);
+}
+
+/* Final CTA Section */
+.product-securita .pdp-cta-left {
+  background: linear-gradient(180deg, #ed1265 0%, #ff1a75 100%);
+}
+
+.product-securita .pdp-cta-badge {
+  background: linear-gradient(135deg, #ed1265 0%, #ff1a75 100%);
+}
+
+.product-securita .pdp-cta-btn-primary {
+  background: linear-gradient(135deg, #ed1265 0%, #ff1a75 100%);
+  box-shadow: 0 4px 15px rgba(237, 18, 101, 0.3);
+}
+
+.product-securita .pdp-cta-btn-primary:hover {
+  box-shadow: 0 8px 25px rgba(237, 18, 101, 0.5);
+}
+
+/* DotGrid Active Color - needs to be set via props in JSX */
+
+
+/* ============================================
+   INCIDENT-RESPONSE PRODUCT - PURPLE THEME (#91298e)
+   ============================================ */
+
+.product-incident-response .pdp-hero {
+  background-color: #91298e;
+}
+
+.product-incident-response .pdp-cta-primary {
+  background-color: #91298e;
+  color: #ffffff;
+}
+
+.product-incident-response .pdp-cta-primary:hover {
+  background-color: #a83ba5;
+}
+
+.product-incident-response .roi-value {
+  color: #91298e;
+}
+
+.product-incident-response .bento-card:hover {
+  border-color: rgba(145, 41, 142, 0.5);
+}
+
+.product-incident-response .bento-glow {
+  background: linear-gradient(135deg, #91298e 0%, #a83ba5 50%, #91298e 100%);
+}
+
+.product-incident-response .pdp-benefits-tag {
+  color: #91298e;
+}
+
+.product-incident-response .benefit-card:hover {
+  border-color: #91298e !important;
+  box-shadow: 0 12px 35px rgba(145, 41, 142, 0.15) !important;
+}
+
+.product-incident-response .benefit-card:hover .benefit-card-icon {
+  background: #f3e5f2;
+}
+
+.product-incident-response .benefit-card:hover .benefit-card-arrow {
+  background: #91298e;
+  color: #ffffff;
+}
+
+.product-incident-response .benefit-card-icon svg path {
+  stroke: #91298e;
+}
+
+.product-incident-response .problem-card,
+.product-incident-response .solution-card {
+  color: #91298e;
+  border-left: 6px solid #91298e;
+}
+
+.product-incident-response .problem-card .card-image-section,
+.product-incident-response .solution-card .card-image-section {
+  background: linear-gradient(135deg, #f3e5f2 0%, #e1c4df 100%);
+}
+
+.product-incident-response .problem-icon,
+.product-incident-response .solution-icon {
+  background: linear-gradient(135deg, #f3e5f2 0%, #e1c4df 100%);
+  color: #91298e;
+  box-shadow: 0 4px 20px rgba(145, 41, 142, 0.2);
+}
+
+.product-incident-response .connector-line {
+  background: linear-gradient(180deg, transparent, #91298e, transparent);
+}
+
+.product-incident-response .connector-icon {
+  background: linear-gradient(135deg, #91298e 0%, #a83ba5 100%);
+  box-shadow: 0 8px 24px rgba(145, 41, 142, 0.4);
+  animation: pulse-incident-response 2s ease-in-out infinite;
+}
+
+@keyframes pulse-incident-response {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 8px 24px rgba(145, 41, 142, 0.4);
+  }
+  50% {
+    transform: scale(1.08);
+    box-shadow: 0 12px 32px rgba(145, 41, 142, 0.6);
+  }
+}
+
+.product-incident-response .problem-badge,
+.product-incident-response .solution-badge {
+  background: linear-gradient(135deg, #91298e 0%, #a83ba5 100%);
+  box-shadow: 0 2px 8px rgba(145, 41, 142, 0.3);
+}
+
+.product-incident-response .pdp-cta-left {
+  background: linear-gradient(180deg, #91298e 0%, #a83ba5 100%);
+}
+
+.product-incident-response .pdp-cta-badge {
+  background: linear-gradient(135deg, #91298e 0%, #a83ba5 100%);
+}
+
+.product-incident-response .pdp-cta-btn-primary {
+  background: linear-gradient(135deg, #91298e 0%, #a83ba5 100%);
+  box-shadow: 0 4px 15px rgba(145, 41, 142, 0.3);
+}
+
+.product-incident-response .pdp-cta-btn-primary:hover {
+  box-shadow: 0 8px 25px rgba(145, 41, 142, 0.5);
+}
+
+/* ============================================
+   FLOW PRODUCT - CYAN THEME (#26b4e8)
+   ============================================ */
+
+.product-flow .pdp-hero {
+  background-color: #26b4e8;
+}
+
+.product-flow .pdp-cta-primary {
+  background-color: #26b4e8;
+  color: #ffffff;
+}
+
+.product-flow .pdp-cta-primary:hover {
+  background-color: #3dc4f5;
+}
+
+.product-flow .roi-value {
+  color: #26b4e8;
+}
+
+.product-flow .bento-card:hover {
+  border-color: rgba(38, 180, 232, 0.5);
+}
+
+.product-flow .bento-glow {
+  background: linear-gradient(135deg, #26b4e8 0%, #3dc4f5 50%, #26b4e8 100%);
+}
+
+.product-flow .pdp-benefits-tag {
+  color: #26b4e8;
+}
+
+.product-flow .benefit-card:hover {
+  border-color: #26b4e8 !important;
+  box-shadow: 0 12px 35px rgba(38, 180, 232, 0.15) !important;
+}
+
+.product-flow .benefit-card:hover .benefit-card-icon {
+  background: #e5f6fd;
+}
+
+.product-flow .benefit-card:hover .benefit-card-arrow {
+  background: #26b4e8;
+  color: #ffffff;
+}
+
+.product-flow .benefit-card-icon svg path {
+  stroke: #26b4e8;
+}
+
+.product-flow .problem-card,
+.product-flow .solution-card {
+  color: #26b4e8;
+  border-left: 6px solid #26b4e8;
+}
+
+.product-flow .problem-card .card-image-section,
+.product-flow .solution-card .card-image-section {
+  background: linear-gradient(135deg, #e5f6fd 0%, #b3e5f7 100%);
+}
+
+.product-flow .problem-icon,
+.product-flow .solution-icon {
+  background: linear-gradient(135deg, #e5f6fd 0%, #b3e5f7 100%);
+  color: #26b4e8;
+  box-shadow: 0 4px 20px rgba(38, 180, 232, 0.2);
+}
+
+.product-flow .connector-line {
+  background: linear-gradient(180deg, transparent, #26b4e8, transparent);
+}
+
+.product-flow .connector-icon {
+  background: linear-gradient(135deg, #26b4e8 0%, #3dc4f5 100%);
+  box-shadow: 0 8px 24px rgba(38, 180, 232, 0.4);
+  animation: pulse-flow 2s ease-in-out infinite;
+}
+
+@keyframes pulse-flow {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 8px 24px rgba(38, 180, 232, 0.4);
+  }
+  50% {
+    transform: scale(1.08);
+    box-shadow: 0 12px 32px rgba(38, 180, 232, 0.6);
+  }
+}
+
+.product-flow .problem-badge,
+.product-flow .solution-badge {
+  background: linear-gradient(135deg, #26b4e8 0%, #3dc4f5 100%);
+  box-shadow: 0 2px 8px rgba(38, 180, 232, 0.3);
+}
+
+.product-flow .pdp-cta-left {
+  background: linear-gradient(180deg, #26b4e8 0%, #3dc4f5 100%);
+}
+
+.product-flow .pdp-cta-badge {
+  background: linear-gradient(135deg, #26b4e8 0%, #3dc4f5 100%);
+}
+
+.product-flow .pdp-cta-btn-primary {
+  background: linear-gradient(135deg, #26b4e8 0%, #3dc4f5 100%);
+  box-shadow: 0 4px 15px rgba(38, 180, 232, 0.3);
+}
+
+.product-flow .pdp-cta-btn-primary:hover {
+  box-shadow: 0 8px 25px rgba(38, 180, 232, 0.5);
+}
+
+/* ============================================
+   ALICE-AI PRODUCT - ORANGE THEME (#f58220)
+   ============================================ */
+
+.product-alice-ai .pdp-hero {
+  background-color: #f58220;
+}
+
+.product-alice-ai .pdp-cta-primary {
+  background-color: #f58220;
+  color: #ffffff;
+}
+
+.product-alice-ai .pdp-cta-primary:hover {
+  background-color: #ff9538;
+}
+
+.product-alice-ai .roi-value {
+  color: #f58220;
+}
+
+.product-alice-ai .bento-card:hover {
+  border-color: rgba(245, 130, 32, 0.5);
+}
+
+.product-alice-ai .bento-glow {
+  background: linear-gradient(135deg, #f58220 0%, #ff9538 50%, #f58220 100%);
+}
+
+.product-alice-ai .pdp-benefits-tag {
+  color: #f58220;
+}
+
+.product-alice-ai .benefit-card:hover {
+  border-color: #f58220 !important;
+  box-shadow: 0 12px 35px rgba(245, 130, 32, 0.15) !important;
+}
+
+.product-alice-ai .benefit-card:hover .benefit-card-icon {
+  background: #fff3e8;
+}
+
+.product-alice-ai .benefit-card:hover .benefit-card-arrow {
+  background: #f58220;
+  color: #ffffff;
+}
+
+.product-alice-ai .benefit-card-icon svg path {
+  stroke: #f58220;
+}
+
+.product-alice-ai .problem-card,
+.product-alice-ai .solution-card {
+  color: #f58220;
+  border-left: 6px solid #f58220;
+}
+
+.product-alice-ai .problem-card .card-image-section,
+.product-alice-ai .solution-card .card-image-section {
+  background: linear-gradient(135deg, #fff3e8 0%, #ffe0c2 100%);
+}
+
+.product-alice-ai .problem-icon,
+.product-alice-ai .solution-icon {
+  background: linear-gradient(135deg, #fff3e8 0%, #ffe0c2 100%);
+  color: #f58220;
+  box-shadow: 0 4px 20px rgba(245, 130, 32, 0.2);
+}
+
+.product-alice-ai .connector-line {
+  background: linear-gradient(180deg, transparent, #f58220, transparent);
+}
+
+.product-alice-ai .connector-icon {
+  background: linear-gradient(135deg, #f58220 0%, #ff9538 100%);
+  box-shadow: 0 8px 24px rgba(245, 130, 32, 0.4);
+  animation: pulse-alice-ai 2s ease-in-out infinite;
+}
+
+@keyframes pulse-alice-ai {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 8px 24px rgba(245, 130, 32, 0.4);
+  }
+  50% {
+    transform: scale(1.08);
+    box-shadow: 0 12px 32px rgba(245, 130, 32, 0.6);
+  }
+}
+
+.product-alice-ai .problem-badge,
+.product-alice-ai .solution-badge {
+  background: linear-gradient(135deg, #f58220 0%, #ff9538 100%);
+  box-shadow: 0 2px 8px rgba(245, 130, 32, 0.3);
+}
+
+.product-alice-ai .pdp-cta-left {
+  background: linear-gradient(180deg, #f58220 0%, #ff9538 100%);
+}
+
+.product-alice-ai .pdp-cta-badge {
+  background: linear-gradient(135deg, #f58220 0%, #ff9538 100%);
+}
+
+.product-alice-ai .pdp-cta-btn-primary {
+  background: linear-gradient(135deg, #f58220 0%, #ff9538 100%);
+  box-shadow: 0 4px 15px rgba(245, 130, 32, 0.3);
+}
+
+.product-alice-ai .pdp-cta-btn-primary:hover {
+  box-shadow: 0 8px 25px rgba(245, 130, 32, 0.5);
+}
+
+/* ============================================
+   IT-DESK PRODUCT - GREEN THEME (#8dc641)
+   ============================================ */
+
+.product-it-desk .pdp-hero {
+  background-color: #8dc641;
+}
+
+.product-it-desk .pdp-cta-primary {
+  background-color: #8dc641;
+  color: #ffffff;
+}
+
+.product-it-desk .pdp-cta-primary:hover {
+  background-color: #9ed454;
+}
+
+.product-it-desk .roi-value {
+  color: #8dc641;
+}
+
+.product-it-desk .bento-card:hover {
+  border-color: rgba(141, 198, 65, 0.5);
+}
+
+.product-it-desk .bento-glow {
+  background: linear-gradient(135deg, #8dc641 0%, #9ed454 50%, #8dc641 100%);
+}
+
+.product-it-desk .pdp-benefits-tag {
+  color: #8dc641;
+}
+
+.product-it-desk .benefit-card:hover {
+  border-color: #8dc641 !important;
+  box-shadow: 0 12px 35px rgba(141, 198, 65, 0.15) !important;
+}
+
+.product-it-desk .benefit-card:hover .benefit-card-icon {
+  background: #f4f9ea;
+}
+
+.product-it-desk .benefit-card:hover .benefit-card-arrow {
+  background: #8dc641;
+  color: #ffffff;
+}
+
+.product-it-desk .benefit-card-icon svg path {
+  stroke: #8dc641;
+}
+
+.product-it-desk .problem-card,
+.product-it-desk .solution-card {
+  color: #8dc641;
+  border-left: 6px solid #8dc641;
+}
+
+.product-it-desk .problem-card .card-image-section,
+.product-it-desk .solution-card .card-image-section {
+  background: linear-gradient(135deg, #f4f9ea 0%, #dcefc0 100%);
+}
+
+.product-it-desk .problem-icon,
+.product-it-desk .solution-icon {
+  background: linear-gradient(135deg, #f4f9ea 0%, #dcefc0 100%);
+  color: #8dc641;
+  box-shadow: 0 4px 20px rgba(141, 198, 65, 0.2);
+}
+
+.product-it-desk .connector-line {
+  background: linear-gradient(180deg, transparent, #8dc641, transparent);
+}
+
+.product-it-desk .connector-icon {
+  background: linear-gradient(135deg, #8dc641 0%, #9ed454 100%);
+  box-shadow: 0 8px 24px rgba(141, 198, 65, 0.4);
+  animation: pulse-it-desk 2s ease-in-out infinite;
+}
+
+@keyframes pulse-it-desk {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 8px 24px rgba(141, 198, 65, 0.4);
+  }
+  50% {
+    transform: scale(1.08);
+    box-shadow: 0 12px 32px rgba(141, 198, 65, 0.6);
+  }
+}
+
+.product-it-desk .problem-badge,
+.product-it-desk .solution-badge {
+  background: linear-gradient(135deg, #8dc641 0%, #9ed454 100%);
+  box-shadow: 0 2px 8px rgba(141, 198, 65, 0.3);
+}
+
+.product-it-desk .pdp-cta-left {
+  background: linear-gradient(180deg, #8dc641 0%, #9ed454 100%);
+}
+
+.product-it-desk .pdp-cta-badge {
+  background: linear-gradient(135deg, #8dc641 0%, #9ed454 100%);
+}
+
+.product-it-desk .pdp-cta-btn-primary {
+  background: linear-gradient(135deg, #8dc641 0%, #9ed454 100%);
+  box-shadow: 0 4px 15px rgba(141, 198, 65, 0.3);
+}
+
+.product-it-desk .pdp-cta-btn-primary:hover {
+  box-shadow: 0 8px 25px rgba(141, 198, 65, 0.5);
+}
+
+/* ============================================
+   ASSET PRODUCT - RED THEME (#f14e40)
+   ============================================ */
+
+.product-asset .pdp-hero {
+  background-color: #f14e40;
+}
+
+.product-asset .pdp-cta-primary {
+  background-color: #f14e40;
+  color: #ffffff;
+}
+
+.product-asset .pdp-cta-primary:hover {
+  background-color: #ff6254;
+}
+
+.product-asset .roi-value {
+  color: #f14e40;
+}
+
+.product-asset .bento-card:hover {
+  border-color: rgba(241, 78, 64, 0.5);
+}
+
+.product-asset .bento-glow {
+  background: linear-gradient(135deg, #f14e40 0%, #ff6254 50%, #f14e40 100%);
+}
+
+.product-asset .pdp-benefits-tag {
+  color: #f14e40;
+}
+
+.product-asset .benefit-card:hover {
+  border-color: #f14e40 !important;
+  box-shadow: 0 12px 35px rgba(241, 78, 64, 0.15) !important;
+}
+
+.product-asset .benefit-card:hover .benefit-card-icon {
+  background: #ffefed;
+}
+
+.product-asset .benefit-card:hover .benefit-card-arrow {
+  background: #f14e40;
+  color: #ffffff;
+}
+
+.product-asset .benefit-card-icon svg path {
+  stroke: #f14e40;
+}
+
+.product-asset .problem-card,
+.product-asset .solution-card {
+  color: #f14e40;
+  border-left: 6px solid #f14e40;
+}
+
+.product-asset .problem-card .card-image-section,
+.product-asset .solution-card .card-image-section {
+  background: linear-gradient(135deg, #ffefed 0%, #ffd4cf 100%);
+}
+
+.product-asset .problem-icon,
+.product-asset .solution-icon {
+  background: linear-gradient(135deg, #ffefed 0%, #ffd4cf 100%);
+  color: #f14e40;
+  box-shadow: 0 4px 20px rgba(241, 78, 64, 0.2);
+}
+
+.product-asset .connector-line {
+  background: linear-gradient(180deg, transparent, #f14e40, transparent);
+}
+
+.product-asset .connector-icon {
+  background: linear-gradient(135deg, #f14e40 0%, #ff6254 100%);
+  box-shadow: 0 8px 24px rgba(241, 78, 64, 0.4);
+  animation: pulse-asset 2s ease-in-out infinite;
+}
+
+@keyframes pulse-asset {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 8px 24px rgba(241, 78, 64, 0.4);
+  }
+  50% {
+    transform: scale(1.08);
+    box-shadow: 0 12px 32px rgba(241, 78, 64, 0.6);
+  }
+}
+
+.product-asset .problem-badge,
+.product-asset .solution-badge {
+  background: linear-gradient(135deg, #f14e40 0%, #ff6254 100%);
+  box-shadow: 0 2px 8px rgba(241, 78, 64, 0.3);
+}
+
+.product-asset .pdp-cta-left {
+  background: linear-gradient(180deg, #f14e40 0%, #ff6254 100%);
+}
+
+.product-asset .pdp-cta-badge {
+  background: linear-gradient(135deg, #f14e40 0%, #ff6254 100%);
+}
+
+.product-asset .pdp-cta-btn-primary {
+  background: linear-gradient(135deg, #f14e40 0%, #ff6254 100%);
+  box-shadow: 0 4px 15px rgba(241, 78, 64, 0.3);
+}
+
+.product-asset .pdp-cta-btn-primary:hover {
+  box-shadow: 0 8px 25px rgba(241, 78, 64, 0.5);
+}
