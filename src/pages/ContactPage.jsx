@@ -193,6 +193,23 @@ const ContactPage = () => {
           </form>
         </div>
       </div>
+
+      {/* Google Map Section */}
+      <div className="map-section">
+        <h2 className="map-title">Visit Our Office</h2>
+        <div className="map-container">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.0531375!2d80.2514293!3d13.0531375!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a525de88e6fa607%3A0x45b84ee87ff71190!2sAutointelli%20Systems%20Pvt%20Ltd!5e0!3m2!1sen!2sin!4v1700000000000"
+            width="100%"
+            height="500"
+            style={{ border: 0 }}
+            allowFullScreen=""
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            title="Autointelli Systems Office Location"
+          ></iframe>
+        </div>
+      </div>
     </div>
   );
 };

@@ -6,6 +6,7 @@ import { initSmoothScroll, destroySmoothScroll } from './utils/smoothScroll';
 // Import shared components
 import Header from './components/Header';
 import Footer from './components/Footer';
+import ChatBot from './components/ChatBot';
 
 // Import page components
 import Home from './pages/Home';
@@ -98,6 +99,7 @@ function App() {
                   </Routes>
                 </main>
                 <Footer />
+                <ChatBot />
               </>
             }
           />

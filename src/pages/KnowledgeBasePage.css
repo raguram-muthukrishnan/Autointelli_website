@@ -213,6 +213,7 @@
   padding: 40px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
   border: 2px solid rgba(240, 206, 29, 0.2);
+  scroll-margin-top: 120px;
 }
 
 .kb-back-button {

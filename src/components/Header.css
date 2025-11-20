@@ -8,9 +8,7 @@ html {
           display: flex;
           justify-content: space-between;
           align-items: center;
-          max-width: 1440px;
           width: 100%;
-          margin: 0 auto;
           padding: 20px 30px;
           box-sizing: border-box;
           position: sticky;

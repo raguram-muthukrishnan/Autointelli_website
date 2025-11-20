@@ -134,7 +134,7 @@ const Header = () => {
                             </svg>
                           </div>
                           <div className="link-content">
-                            <span className="link-title">Autointelli OPS DUTY</span>
+                            <span className="link-title">Autointelli OpsDuty</span>
                             <span className="link-description">Policy-based event aggregation & remediation</span>
                           </div>
                         </a>
@@ -374,7 +374,7 @@ const Header = () => {
             {mobileDropdown === 'products' && (
               <div className="mobile-dropdown-content">
                 <a href="/products/nms" onClick={toggleMenu}>Autointelli NMS</a>
-                <a href="/products/incident-response" onClick={toggleMenu}>Autointelli OPS DUTY</a>
+                <a href="/products/incident-response" onClick={toggleMenu}>Autointelli OpsDuty</a>
                 <a href="/products/flow" onClick={toggleMenu}>IntelliFlow</a>
                 <a href="/products/securita" onClick={toggleMenu}>Autointelli Securita</a>
                 <a href="/products/alice-ai" onClick={toggleMenu}>Alice AI</a>

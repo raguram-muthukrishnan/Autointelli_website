@@ -13,7 +13,7 @@ const Footer = () => {
           <ul className="footer-links">
             <li><a href="/products/nms">NMS</a></li>
             <li><a href="/products/securita">Securita</a></li>
-            <li><a href="/products/flow">OPS Duty</a></li>
+            <li><a href="/products/incident-response">OPS DUTY</a></li>
             <li><a href="/products/flow">Intelliflow</a></li>
             <li><a href="/products/alice-ai">Alice AI</a></li>
             <li><a href="/products/it-desk">IntelliDesk</a></li>

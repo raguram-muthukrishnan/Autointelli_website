@@ -181,7 +181,7 @@ const TutorialsPage = () => {
                       className="view-category-btn"
                       onClick={() => setSelectedCategory(category.id)}
                     >
-                      View Tutorials →
+                      View Tutorials
                     </button>
                   </div>
                 ))}

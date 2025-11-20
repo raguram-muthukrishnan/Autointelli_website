@@ -11,7 +11,7 @@ export const productsData =
 
 {
   "pageHero": {
-    "title": "The Autointelli ITOps Platform",
+    "title": "The Autointelli AIOps Platform",
     "subtitle": "A unified suite of tools to monitor your infrastructure, automate responses, secure access, and streamline IT operations from end to end. Gain full visibility and control to prevent downtime and drive business efficiency."
   },
   "products": [

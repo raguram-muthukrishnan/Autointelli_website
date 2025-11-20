@@ -19,7 +19,7 @@ const WhyChooseUs = () => {
         </div>
         <div className="why-choose-copy">
           <span className="why-choose-tag">WHY CHOOSE US</span>
-          <h2 id="why-choose-title">Why Choose Our ITOps Platform?</h2>
+          <h2 id="why-choose-title">Why Choose our AIOps Platform?</h2>
           <p>Experience the difference of a truly integrated and intelligent solution.</p>
           <ul>
             {advantages.map((item) => (

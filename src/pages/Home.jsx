@@ -7,6 +7,7 @@ import FeaturesShowcase from '../components/FeaturesShowcase';
 import WhyChooseUs from '../components/WhyChooseUs';
 import AwardsRecognition from '../components/AwardsRecognition';
 import IntegrationHub from '../components/IntegrationHub';
+import Newsletter from '../components/Newsletter';
 import FinalCta from '../components/FinalCta';
 
 const Home = () => {
@@ -21,6 +22,7 @@ const Home = () => {
       <WhyChooseUs />
       <AwardsRecognition />
       <IntegrationHub />
+      <Newsletter />
       <FinalCta />
     </>
   );
