@@ -75,7 +75,7 @@ export const knowledgeBaseData = {
       id: "incident-management",
       title: "Incident Management",
       icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L1 21h22L12 2zm0 3.99L19.53 19H4.47L12 5.99zM11 16v2h2v-2h-2zm0-6v4h2v-4h-2z"/></svg>,
-      color: "#E94B3C",
+      color: "#F0CE1D",
       articles: [
         {
           id: 11,
@@ -143,7 +143,7 @@ export const knowledgeBaseData = {
       id: "troubleshooting",
       title: "Troubleshooting",
       icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M22.7 19l-9.1-9.1c.9-2.3.4-5-1.5-6.9-2-2-5-2.4-7.4-1.3L9 6 6 9 1.6 4.7C.4 7.1.9 10.1 2.9 12.1c1.9 1.9 4.6 2.4 6.9 1.5l9.1 9.1c.4.4 1 .4 1.4 0l2.3-2.3c.5-.4.5-1.1.1-1.4z"/></svg>,
-      color: "#4A90E2",
+      color: "#F0CE1D",
       articles: [
         {
           id: 21,
@@ -211,7 +211,7 @@ export const knowledgeBaseData = {
       id: "tools-integrations",
       title: "Tools & Integrations",
       icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M16 7V3H8v4H2v14h20V7h-6zm-6-2h4v2h-4V5zm10 16H4V9h16v12z"/><path d="M9 11h2v8H9zm4 0h2v8h-2z"/></svg>,
-      color: "#9B7DD4",
+      color: "#F0CE1D",
       articles: [
         {
           id: 31,
@@ -279,7 +279,7 @@ export const knowledgeBaseData = {
       id: "policies-security",
       title: "Policies & Security",
       icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zM9 6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9V6zm9 14H6V10h12v10zm-6-3c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2z"/></svg>,
-      color: "#2D8B2D",
+      color: "#F0CE1D",
       articles: [
         {
           id: 41,
@@ -347,7 +347,7 @@ export const knowledgeBaseData = {
       id: "advanced",
       title: "Advanced / Miscellaneous",
       icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M7 2v11h3v9l7-12h-4l4-8z"/></svg>,
-      color: "#FF6B6B",
+      color: "#F0CE1D",
       articles: [
         {
           id: 51,

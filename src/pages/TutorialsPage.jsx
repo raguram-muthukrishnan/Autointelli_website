@@ -33,7 +33,7 @@ const TutorialsPage = () => {
       {/* Hero Section */}
       <section className="tutorials-hero">
         <div className="tutorials-hero-content">
-          <FiPlay className="tutorials-hero-icon" />
+          <FiYoutube className="tutorials-hero-icon" />
           <h1>{tutorialsData.pageTitle}</h1>
           <p>{tutorialsData.pageSubtitle}</p>
           
@@ -43,7 +43,6 @@ const TutorialsPage = () => {
             rel="noopener noreferrer"
             className="youtube-channel-link"
           >
-            <FiYoutube />
             Subscribe to Our YouTube Channel
           </a>
         </div>
@@ -162,7 +161,7 @@ const TutorialsPage = () => {
                       backgroundColor: selectedCategory === category.id ? `${category.color}20` : 'transparent'
                     }}
                   >
-                    {category.icon} {category.title} ({tutorialsData.videos.filter(v => v.category === category.id).length})
+                    {category.title} ({tutorialsData.videos.filter(v => v.category === category.id).length})
                   </button>
                 ))}
               </div>
@@ -209,10 +208,6 @@ const TutorialsPage = () => {
                   </div>
                   
                   <div className="tutorial-content">
-                    <div className="tutorial-category" style={{ 
-                      backgroundColor: tutorialsData.categories.find(c => c.id === video.category)?.color 
-                    }}>
-                    </div>
                     <h3>{video.title}</h3>
                     <p>{video.description}</p>
                     <div className="tutorial-tags">

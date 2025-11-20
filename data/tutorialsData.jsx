@@ -15,14 +15,14 @@ export const tutorialsData = {
       id: "advanced",
       title: "Advanced Features",
       icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M7 2v11h3v9l7-12h-4l4-8z"/></svg>,
-      color: "#4A90E2",
+      color: "#F0CE1D",
       description: "Deep dive into advanced capabilities and best practices"
     },
     {
       id: "integrations",
       title: "Integrations & Automation",
       icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M16 7V3H8v4H2v14h20V7h-6zm-6-2h4v2h-4V5zm10 16H4V9h16v12z"/><path d="M9 11h2v8H9zm4 0h2v8h-2z"/></svg>,
-      color: "#9B7DD4",
+      color: "#F0CE1D",
       description: "Connect Autointelli with your existing tools and workflows"
     }
   ],

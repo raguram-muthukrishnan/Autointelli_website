@@ -61,7 +61,7 @@ const KnowledgeBasePage = () => {
             
             <div className="kb-article-header">
               <span className="kb-article-category" style={{ backgroundColor: selectedSection.color }}>
-                {selectedSection.icon} {selectedSection.title}
+                {selectedSection.title}
               </span>
               <h1>{selectedArticle.title}</h1>
               <p className="kb-article-description">{selectedArticle.description}</p>
@@ -135,9 +135,6 @@ const KnowledgeBasePage = () => {
               filteredSections.map((section) => (
                 <div key={section.id} className="kb-section">
                   <div className="kb-section-header">
-                    <span className="kb-section-icon" style={{ backgroundColor: section.color }}>
-                      {section.icon}
-                    </span>
                     <h2>{section.title}</h2>
                     <span className="kb-article-count">{section.articles.length} articles</span>
                   </div>
