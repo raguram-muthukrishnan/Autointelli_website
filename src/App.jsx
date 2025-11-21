@@ -20,14 +20,23 @@ import KnowledgeBasePage from './pages/KnowledgeBasePage';
 import TutorialsPage from './pages/TutorialsPage';
 import ResourcesPage from './pages/ResourcesPage';
 import WebinarsPage from './pages/WebinarsPage';
+import WebinarDetailPage from './pages/WebinarDetailPage';
+import EventsPage from './pages/EventsPage';
+import EventDetailPage from './pages/EventDetailPage';
+import CareersPage from './pages/CareersPage';
+import TermsPage from './pages/TermsPage';
+import PrivacyPage from './pages/PrivacyPage';
 
 // Import admin components
 import Login from './admin/Login';
 import AdminLayout from './admin/AdminLayout';
 import Dashboard from './admin/Dashboard';
 import DashboardBlogs from './admin/DashboardBlogs';
-import DashboardWebinars from './admin/DashboardWebinars';
-import DashboardEvents from './admin/DashboardEvents';
+import DashboardWebinarsEvents from './admin/DashboardWebinarsEvents';
+import DashboardResources from './admin/DashboardResources';
+import DashboardCareers from './admin/DashboardCareers';
+import DashboardApplications from './admin/DashboardApplications';
+import DashboardUsers from './admin/DashboardUsers';
 import ProtectedRoute from './components/ProtectedRoute';
 
 // Component to handle smooth scroll based on route
@@ -73,8 +82,11 @@ function App() {
           >
             <Route index element={<Dashboard />} />
             <Route path="blogs" element={<DashboardBlogs />} />
-            <Route path="webinars" element={<DashboardWebinars />} />
-            <Route path="events" element={<DashboardEvents />} />
+            <Route path="webinars-events" element={<DashboardWebinarsEvents />} />
+            <Route path="resources" element={<DashboardResources />} />
+            <Route path="careers" element={<DashboardCareers />} />
+            <Route path="applications" element={<DashboardApplications />} />
+            <Route path="users" element={<DashboardUsers />} />
           </Route>
 
           {/* Public Routes - With Header/Footer */}
@@ -95,6 +107,12 @@ function App() {
                     <Route path="/tutorials" element={<TutorialsPage />} />
                     <Route path="/resources" element={<ResourcesPage />} />
                     <Route path="/webinars" element={<WebinarsPage />} />
+                    <Route path="/webinars/:slug" element={<WebinarDetailPage />} />
+                    <Route path="/events" element={<EventsPage />} />
+                    <Route path="/events/:slug" element={<EventDetailPage />} />
+                    <Route path="/careers" element={<CareersPage />} />
+                    <Route path="/terms" element={<TermsPage />} />
+                    <Route path="/privacy" element={<PrivacyPage />} />
                     <Route path="/products/:productId" element={<ProductDetailPage />} />
                   </Routes>
                 </main>
