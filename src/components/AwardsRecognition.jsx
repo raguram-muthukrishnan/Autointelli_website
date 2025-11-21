@@ -1,4 +1,4 @@
-import './AwardsRecognition.css';
+import './AwardsRecogonition.css';
 import { FiAward } from 'react-icons/fi';
 import medalIcon from '../assets/awards/medal-award.svg';
 import award1 from '../assets/awards/1.jpg';

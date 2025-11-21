@@ -152,7 +152,7 @@ export const productsData =
     },
     {
       "id": "incident-response",
-      "name": "Autointelli OPS DUTY",
+      "name": "Autointelli OpsDuty",
       "slug": "/products/incident-response",
       "hero": {
         "headline": "Unified Incident Response and Alert Management",

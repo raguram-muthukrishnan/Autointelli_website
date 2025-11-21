@@ -13,7 +13,88 @@ const ChatBot = () => {
   ]);
   const [inputValue, setInputValue] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  const [isConnected, setIsConnected] = useState(false);
   const messagesEndRef = useRef(null);
+  const socketRef = useRef(null);
+  const userIdRef = useRef(null);
+
+  // Initialize WebSocket connection
+  useEffect(() => {
+    // Get or create user ID
+    let userId = localStorage.getItem('chat_user_id');
+    if (!userId) {
+      userId = Math.floor(Math.random() * 1000000000);
+      localStorage.setItem('chat_user_id', userId);
+    }
+    userIdRef.current = userId;
+
+    // Connect to WebSocket
+    connectWebSocket();
+
+    return () => {
+      if (socketRef.current) {
+        socketRef.current.close();
+      }
+    };
+  }, []);
+
+  const connectWebSocket = () => {
+    try {
+      const PROXY_URL = 'ws://195.201.164.158:8765';
+      const socket = new WebSocket(PROXY_URL);
+
+      socket.onopen = () => {
+        setIsConnected(true);
+        // addSystemMessage('Connected to Alice AI Server ✅');
+      };
+
+      socket.onmessage = (event) => {
+        try {
+          const data = JSON.parse(event.data);
+          const displayText = data.message || JSON.stringify(data);
+          addBotMessage(displayText);
+        } catch (e) {
+          addBotMessage(event.data);
+        }
+        setIsLoading(false);
+      };
+
+      socket.onclose = () => {
+        setIsConnected(false);
+        // addSystemMessage('Connection closed. Attempting to reconnect...');
+        setTimeout(connectWebSocket, 3000);
+      };
+
+      socket.onerror = (err) => {
+        console.error('WebSocket Error:', err);
+        // addSystemMessage('Connection error. Please try again.');
+        setIsLoading(false);
+      };
+
+      socketRef.current = socket;
+    } catch (err) {
+      console.error('Error creating WebSocket:', err);
+      // addSystemMessage('Failed to connect. Please refresh the page.');
+    }
+  };
+
+  const addSystemMessage = (text) => {
+    setMessages(prev => [...prev, {
+      id: prev.length + 1,
+      text,
+      sender: 'system',
+      timestamp: new Date()
+    }]);
+  };
+
+  const addBotMessage = (text) => {
+    setMessages(prev => [...prev, {
+      id: prev.length + 1,
+      text,
+      sender: 'bot',
+      timestamp: new Date()
+    }]);
+  };
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -23,10 +104,33 @@ const ChatBot = () => {
     scrollToBottom();
   }, [messages]);
 
+  // Handle mouse wheel scrolling
+  const handleWheel = (e) => {
+    const container = messagesEndRef.current?.parentElement;
+    if (container) {
+      e.preventDefault();
+      e.stopPropagation();
+      container.scrollTop += e.deltaY;
+    }
+  };
+
+  // Prevent page scroll when hovering over chatbot
+  const handleMouseEnter = () => {
+    document.body.style.overflow = 'hidden';
+  };
+
+  const handleMouseLeave = () => {
+    document.body.style.overflow = 'auto';
+  };
+
   const handleSendMessage = async (e) => {
     e.preventDefault();
     
     if (!inputValue.trim()) return;
+    if (!isConnected) {
+      // addSystemMessage('Not connected to server. Please wait...');
+      return;
+    }
 
     // Add user message
     const userMessage = {
@@ -40,17 +144,21 @@ const ChatBot = () => {
     setInputValue('');
     setIsLoading(true);
 
-    // Simulate API call - Replace this with actual API integration
-    setTimeout(() => {
-      const botMessage = {
-        id: messages.length + 2,
-        text: "Thanks for your message! I'm processing your request. Please connect the API for full functionality.",
-        sender: 'bot',
-        timestamp: new Date()
+    // Send message via WebSocket
+    if (socketRef.current && socketRef.current.readyState === WebSocket.OPEN) {
+      const payload = {
+        user_id: 2090364640,
+        direction: 'client',
+        message: inputValue,
+        conversationId: "69202da1e2417730d97f3fc4",
+        createdAt: new Date().toISOString()
       };
-      setMessages(prev => [...prev, botMessage]);
+
+      socketRef.current.send(JSON.stringify(payload));
+    } else {
+      // addSystemMessage('Error: Connection not available');
       setIsLoading(false);
-    }, 1000);
+    }
   };
 
   const handleClearChat = () => {
@@ -88,7 +196,9 @@ const ChatBot = () => {
             </div>
             <div className="chatbot-header-text">
               <h3 className="chatbot-title">Alice AI</h3>
-              <p className="chatbot-subtitle">Always here to help</p>
+              <p className="chatbot-subtitle">
+                {isConnected ? '🟢 Online' : '🔴 Connecting...'}
+              </p>
             </div>
             <button
               className="chatbot-close-button"
@@ -100,7 +210,10 @@ const ChatBot = () => {
           </div>
 
           {/* Messages Container */}
-          <div className="chatbot-messages">
+          <div 
+            className="chatbot-messages"
+            onWheel={handleWheel}
+          >
             {messages.map((message) => (
               <div
                 key={message.id}
@@ -109,9 +222,11 @@ const ChatBot = () => {
                 <div className="message-content">
                   {message.text}
                 </div>
-                <span className="message-time">
-                  {message.timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
-                </span>
+                {message.sender !== 'system' && (
+                  <span className="message-time">
+                    {message.timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+                  </span>
+                )}
               </div>
             ))}
             {isLoading && (
@@ -131,15 +246,15 @@ const ChatBot = () => {
             <input
               type="text"
               className="chatbot-input"
-              placeholder="Type your message..."
+              placeholder={isConnected ? "Type your message..." : "Connecting..."}
               value={inputValue}
               onChange={(e) => setInputValue(e.target.value)}
-              disabled={isLoading}
+              disabled={isLoading || !isConnected}
             />
             <button
               type="submit"
               className="chatbot-send-button"
-              disabled={isLoading || !inputValue.trim()}
+              disabled={isLoading || !inputValue.trim() || !isConnected}
               aria-label="Send message"
             >
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">

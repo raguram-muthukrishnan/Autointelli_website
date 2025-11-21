@@ -5,6 +5,10 @@ import arrow_right from '../assets/arrow_right.svg'
 import imgVideoPlaceholder from '../assets/Video Placeholder.svg'
 
 export default function Hero() {
+  const handlePlayClick = () => {
+    window.open('https://youtu.be/KWC6-iVFpKQ?si=W2j0T4deThSMa0FW', '_blank');
+  };
+
   return (
     <div className="hero-container" data-name="Hero_d">
       <div className="hero-vector" data-name="Vector">
@@ -44,7 +48,7 @@ export default function Hero() {
 
       <div className="hero-laptop-image" data-name="Group 2 23">
         <img alt="Laptop showing a dashboard" src={laptopImage} />
-        <div className="hero-video-placeholder" data-name="Video Placeholder">
+        <div className="hero-video-placeholder" data-name="Video Placeholder" onClick={handlePlayClick} style={{cursor: 'pointer'}}>
           <img alt="Play video button" src={imgVideoPlaceholder} style={{borderRadius: '50%'}} />
         </div>
       </div>

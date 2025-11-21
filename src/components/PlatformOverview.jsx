@@ -1,9 +1,9 @@
 import { FiArrowUpRight, FiGlobe, FiShield, FiCpu } from 'react-icons/fi';
 import './PlatformOverview.css';
-import ir1 from '../assets/stockimages/ir1.png';
-import ir2 from '../assets/stockimages/ir2.png';
-import ir3 from '../assets/stockimages/ir3.png';
-import dashboardImage from '../assets/stockimages/database monitoring.png';
+import ImageSlider from './ImageSlider';
+import img1 from '../assets/MainImages/IT Operations Management.png';
+import img2 from '../assets/MainImages/Security & Compliance.png';
+import img3 from '../assets/MainImages/Automation & Orchestration.png';
 
 const heroHighlights = [
   'Unlock the first AI-powered customer operations suite.',
@@ -17,24 +17,24 @@ const primaryCards = [
     title: 'IT Operations Management',
     description: 'Orchestrate observability, capacity, and performance with a unified command center.',
     badge: '',
-    imageLabel: 'Automation snapshot',
-    image: ir1
+    imageLabel: 'IT Operations Management',
+    image: img1
   },
   {
     icon: <FiShield />,
     title: 'Security & Compliance',
     description: 'Bring proactive threat detection, compliance reporting, and access governance together.',
     badge: '',
-    imageLabel: 'Workflow builder overview',
-    image: ir2
+    imageLabel: 'Security & Compliance',
+    image: img2
   },
   {
     icon: <FiCpu />,
     title: 'Automation & Orchestration',
     description: 'Automate resolutions, approvals, and delivery pipelines with reusable runbooks.',
     badge: '',
-    imageLabel: 'Automation canvas',
-    image: ir3
+    imageLabel: 'Automation & Orchestration',
+    image: img3
   }
 ];
 
@@ -53,13 +53,11 @@ const PlatformOverview = () => {
             Learn about automation
             <FiArrowUpRight aria-hidden="true" />
           </a>
+          
+          <ImageSlider />
         </header>
 
-        <div className="platform-hero-visual" aria-hidden="true">
-          <div className="platform-hero-card">
-            <img src={dashboardImage} alt="Dashboard Preview" className="platform-hero-image" />
-          </div>
-        </div>
+
 
         <ul className="platform-highlights">
           {heroHighlights.map((item) => (

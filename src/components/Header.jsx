@@ -2,6 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import './Header.css';
 import logo from '../assets/logo.png';
+import nmsIcon from '../assets/NMS.png';
+import opsDutyIcon from '../assets/OPSDUTY.png';
+import flowIcon from '../assets/FLOW.png';
+import securitaIcon from '../assets/SECURITA.png';
+import aliceIcon from '../assets/ALICE.png';
+import helpDeskIcon from '../assets/HELPDESK.png';
+import assetIcon from '../assets/ASSET.png';
 
 
 const Header = () => {
@@ -112,10 +119,7 @@ const Header = () => {
                         <h4 className="dropdown-category">Monitoring</h4>
                         <a href="/products/nms" className="dropdown-link">
                           <div className="link-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                              <rect x="3" y="3" width="18" height="18" rx="2" stroke="#6366F1" strokeWidth="2"/>
-                              <path d="M8 12h8M12 8v8" stroke="#6366F1" strokeWidth="2"/>
-                            </svg>
+                            <img src={nmsIcon} alt="NMS" />
                           </div>
                           <div className="link-content">
                             <span className="link-title">Autointelli NMS</span>
@@ -128,10 +132,7 @@ const Header = () => {
                         <h4 className="dropdown-category">Automation & Incident Response</h4>
                         <a href="/products/incident-response" className="dropdown-link">
                           <div className="link-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                              <circle cx="12" cy="12" r="9" stroke="#8B5CF6" strokeWidth="2"/>
-                              <path d="M12 7v5l3 3" stroke="#8B5CF6" strokeWidth="2"/>
-                            </svg>
+                            <img src={opsDutyIcon} alt="OpsDuty" />
                           </div>
                           <div className="link-content">
                             <span className="link-title">Autointelli OpsDuty</span>
@@ -140,11 +141,7 @@ const Header = () => {
                         </a>
                         <a href="/products/flow" className="dropdown-link">
                           <div className="link-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                              <rect x="3" y="3" width="7" height="7" rx="1" stroke="#8B5CF6" strokeWidth="2"/>
-                              <rect x="14" y="3" width="7" height="7" rx="1" stroke="#8B5CF6" strokeWidth="2"/>
-                              <rect x="14" y="14" width="7" height="7" rx="1" stroke="#8B5CF6" strokeWidth="2"/>
-                            </svg>
+                            <img src={flowIcon} alt="Flow" />
                           </div>
                           <div className="link-content">
                             <span className="link-title">IntelliFlow</span>
@@ -157,9 +154,7 @@ const Header = () => {
                         <h4 className="dropdown-category">Security & Access</h4>
                         <a href="/products/securita" className="dropdown-link">
                           <div className="link-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                              <path d="M12 2L4 6v6c0 5.5 3.8 10.7 8 12 4.2-1.3 8-6.5 8-12V6l-8-4z" stroke="#EC4899" strokeWidth="2"/>
-                            </svg>
+                            <img src={securitaIcon} alt="Securita" />
                           </div>
                           <div className="link-content">
                             <span className="link-title">Autointelli Securita</span>
@@ -172,10 +167,7 @@ const Header = () => {
                         <h4 className="dropdown-category">IT Operations & Productivity</h4>
                         <a href="/products/alice-ai" className="dropdown-link">
                           <div className="link-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                              <circle cx="12" cy="8" r="3" stroke="#10B981" strokeWidth="2"/>
-                              <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" stroke="#10B981" strokeWidth="2"/>
-                            </svg>
+                            <img src={aliceIcon} alt="Alice" />
                           </div>
                           <div className="link-content">
                             <span className="link-title">Alice AI</span>
@@ -184,9 +176,7 @@ const Header = () => {
                         </a>
                         <a href="/products/it-desk" className="dropdown-link">
                           <div className="link-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                              <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" stroke="#10B981" strokeWidth="2"/>
-                            </svg>
+                            <img src={helpDeskIcon} alt="IntelliDesk" />
                           </div>
                           <div className="link-content">
                             <span className="link-title">IntelliDesk</span>
@@ -195,10 +185,7 @@ const Header = () => {
                         </a>
                         <a href="/products/asset" className="dropdown-link">
                           <div className="link-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                              <rect x="3" y="3" width="18" height="18" rx="2" stroke="#10B981" strokeWidth="2"/>
-                              <path d="M9 9h6M9 15h6" stroke="#10B981" strokeWidth="2"/>
-                            </svg>
+                            <img src={assetIcon} alt="Asset" />
                           </div>
                           <div className="link-content">
                             <span className="link-title">IntelliAsset</span>

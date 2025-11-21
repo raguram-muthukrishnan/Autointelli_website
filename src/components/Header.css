@@ -1,4 +1,4 @@
-/* --- Smooth Scroll Behavior --- */
+﻿/* --- Smooth Scroll Behavior --- */
 html {
   scroll-behavior: smooth;
 }
@@ -210,20 +210,22 @@ html {
 
         .link-icon {
           flex-shrink: 0;
-          width: 38px;
-          height: 38px;
-          background: #f8f9ff;
-          border-radius: 8px;
+          width: 40px;
+          height: 40px;
           display: flex;
           align-items: center;
           justify-content: center;
           transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
+        .link-icon img {
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+        }
+
         .dropdown-link:hover .link-icon {
-          background: #eef0ff;
           transform: scale(1.1) rotate(5deg);
-          box-shadow: 0 4px 12px rgba(99, 102, 241, 0.2);
         }
 
         .link-content {

@@ -62,12 +62,12 @@ const ProductDetailPage = () => {
   const getProductColors = (id) => {
     const colorMap = {
       'nms': { primary: '#2e3591', light: '#c5cae9', text: '#2e3591', dotColor: '#7a80c4' },
-      'securita': { primary: '#ed1265', light: '#ffc9e0', text: '#ed1265', dotColor: '#ff6b9d' },
-      'incident-response': { primary: '#91298e', light: '#e1c4df', text: '#91298e', dotColor: '#c76bc4' },
+      'securita': { primary: '#91298e', light: '#e1c4df', text: '#91298e', dotColor: '#c76bc4' },
+      'incident-response': { primary: '#f14e40', light: '#ffd4cf', text: '#f14e40', dotColor: '#ff7a6b' },
       'flow': { primary: '#26b4e8', light: '#b3e5f7', text: '#26b4e8', dotColor: '#6dd5ff' },
-      'alice-ai': { primary: '#f58220', light: '#ffe0c2', text: '#f58220', dotColor: '#ffad5c' },
+      'alice-ai': { primary: '#ed1265', light: '#ffc9e0', text: '#ed1265', dotColor: '#ff6b9d' },
       'it-desk': { primary: '#8dc641', light: '#dcefc0', text: '#8dc641', dotColor: '#b5e06f' },
-      'asset': { primary: '#f14e40', light: '#ffd4cf', text: '#f14e40', dotColor: '#ff7a6b' }
+      'asset': { primary: '#f58220', light: '#ffe0c2', text: '#f58220', dotColor: '#ffad5c' }
     };
     return colorMap[id] || { primary: '#2e3591', light: '#c5cae9', text: '#2e3591', dotColor: '#7a80c4' };
   };
